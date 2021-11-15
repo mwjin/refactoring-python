@@ -9,20 +9,7 @@ def statement(invoice: dict, plays: dict):
 
     for perf in invoice["performances"]:
         play = plays[perf["playID"]]
-        this_amount = 0
-
-        if play["type"] == "tragedy":
-            this_amount = 40000
-            if perf["audience"] > 30:
-                this_amount += 1000 * (perf["audience"] - 30)
-        elif play["type"] == "comedy":
-            this_amount = 30000
-            if perf["audience"] > 20:
-                this_amount += 10000 + 500 * (perf["audience"] - 20)
-            this_amount += 300 * perf["audience"]
-        else:
-            raise ValueError(f'Unknown genre: {play["type"]}')
-
+        this_amount = get_amount_for(perf, play)
         volume_credits += max(perf["audience"] - 30, 0)
         if play["type"] == "comedy":
             volume_credits += math.floor(perf["audience"] / 5)
@@ -33,3 +20,21 @@ def statement(invoice: dict, plays: dict):
     result += f"Total Amount: {dollar_format(total_amount / 100)}\n"
     result += f"Volume Credits: {volume_credits}\n"
     return result
+
+
+def get_amount_for(perf, play):
+    this_amount = 0
+
+    if play["type"] == "tragedy":
+        this_amount = 40000
+        if perf["audience"] > 30:
+            this_amount += 1000 * (perf["audience"] - 30)
+    elif play["type"] == "comedy":
+        this_amount = 30000
+        if perf["audience"] > 20:
+            this_amount += 10000 + 500 * (perf["audience"] - 20)
+        this_amount += 300 * perf["audience"]
+    else:
+        raise ValueError(f'Unknown genre: {play["type"]}')
+
+    return this_amount
