@@ -8,6 +8,23 @@ class PerformanceCalculator:
         self.performance = performance
         self.play = play
 
+    def get_amount(self) -> int:
+        result = 0
+
+        if self.play["type"] == "tragedy":
+            result = 40000
+            if self.performance["audience"] > 30:
+                result += 1000 * (self.performance["audience"] - 30)
+        elif self.play["type"] == "comedy":
+            result = 30000
+            if self.performance["audience"] > 20:
+                result += 10000 + 500 * (self.performance["audience"] - 20)
+            result += 300 * self.performance["audience"]
+        else:
+            raise ValueError(f'Unknown genre: {self.play["type"]}')
+
+        return result
+
 
 def create_statement_data(invoice: dict, plays: dict) -> dict:
     result = {}
@@ -36,21 +53,7 @@ def get_play_for(performance: dict, plays: dict) -> dict:
 
 
 def get_amount_for(performance: dict) -> int:
-    result = 0
-
-    if performance["play"]["type"] == "tragedy":
-        result = 40000
-        if performance["audience"] > 30:
-            result += 1000 * (performance["audience"] - 30)
-    elif performance["play"]["type"] == "comedy":
-        result = 30000
-        if performance["audience"] > 20:
-            result += 10000 + 500 * (performance["audience"] - 20)
-        result += 300 * performance["audience"]
-    else:
-        raise ValueError(f'Unknown genre: {performance["play"]["type"]}')
-
-    return result
+    return PerformanceCalculator(performance, performance["play"]).get_amount()
 
 
 def get_volume_credits_for(performance: dict) -> int:
