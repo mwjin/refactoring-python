@@ -8,6 +8,10 @@ def statement(invoice: dict, plays: dict) -> str:
     statement_data["performances"] = [
         enrich_performance(perf, plays) for perf in invoice["performances"]
     ]
+    statement_data["total_amount"] = get_total_amount(statement_data)
+    statement_data["total_volume_credits"] = get_total_volume_credits(
+        statement_data
+    )
     return render_plain_text(statement_data)
 
 
@@ -49,6 +53,20 @@ def get_volume_credits_for(performance: dict) -> int:
     return result
 
 
+def get_total_amount(data: dict) -> int:
+    result = 0
+    for perf in data["performances"]:
+        result += perf["amount"]
+    return result
+
+
+def get_total_volume_credits(data: dict) -> int:
+    result = 0
+    for perf in data["performances"]:
+        result += perf["volume_credits"]
+    return result
+
+
 def render_plain_text(data: dict) -> str:
     result = f'Invoice (Customer: {data["customer"]})\n'
 
@@ -67,16 +85,3 @@ def render_plain_text(data: dict) -> str:
 def get_usd(num: float) -> str:
     return "${:,.2f}".format(num / 100)
 
-
-def get_total_amount(data: dict) -> int:
-    result = 0
-    for perf in data["performances"]:
-        result += perf["amount"]
-    return result
-
-
-def get_total_volume_credits(data: dict) -> int:
-    result = 0
-    for perf in data["performances"]:
-        result += perf["volume_credits"]
-    return result
