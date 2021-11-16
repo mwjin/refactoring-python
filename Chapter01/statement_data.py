@@ -4,7 +4,7 @@ from functools import reduce
 
 
 class PerformanceCalculator:
-    def __init__(self, performance, play):
+    def __init__(self, performance: dict, play: dict):
         self.performance = performance
         self.play = play
 
@@ -20,7 +20,7 @@ class PerformanceCalculator:
 
 
 class TragedyCalculator(PerformanceCalculator):
-    def get_amount(self):
+    def get_amount(self) -> int:
         result = 40000
         if self.performance["audience"] > 30:
             result += 1000 * (self.performance["audience"] - 30)
@@ -28,7 +28,7 @@ class TragedyCalculator(PerformanceCalculator):
 
 
 class ComedyCalculator(PerformanceCalculator):
-    def get_amount(self):
+    def get_amount(self) -> int:
         result = 30000
         if self.performance["audience"] > 20:
             result += 10000 + 500 * (self.performance["audience"] - 20)
