@@ -12,11 +12,7 @@ class PerformanceCalculator:
         raise Exception("Use subclass")
 
     def get_volume_credits(self) -> int:
-        result = max(self.performance["audience"] - 30, 0)
-        if self.play["type"] == "comedy":
-            result += math.floor(self.performance["audience"] / 5)
-
-        return result
+        return max(self.performance["audience"] - 30, 0)
 
 
 class TragedyCalculator(PerformanceCalculator):
@@ -33,6 +29,11 @@ class ComedyCalculator(PerformanceCalculator):
         if self.performance["audience"] > 20:
             result += 10000 + 500 * (self.performance["audience"] - 20)
         result += 300 * self.performance["audience"]
+        return result
+
+    def get_volume_credits(self) -> int:
+        result = super().get_volume_credits()
+        result += math.floor(self.performance["audience"] / 5)
         return result
 
 
