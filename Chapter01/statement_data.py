@@ -9,19 +9,7 @@ class PerformanceCalculator:
         self.play = play
 
     def get_amount(self) -> int:
-        result = 0
-
-        if self.play["type"] == "tragedy":
-            raise Exception("Use subclass")
-        elif self.play["type"] == "comedy":
-            result = 30000
-            if self.performance["audience"] > 20:
-                result += 10000 + 500 * (self.performance["audience"] - 20)
-            result += 300 * self.performance["audience"]
-        else:
-            raise ValueError(f'Unknown genre: {self.play["type"]}')
-
-        return result
+        raise Exception("Use subclass")
 
     def get_volume_credits(self) -> int:
         result = max(self.performance["audience"] - 30, 0)
@@ -40,7 +28,12 @@ class TragedyCalculator(PerformanceCalculator):
 
 
 class ComedyCalculator(PerformanceCalculator):
-    pass
+    def get_amount(self):
+        result = 30000
+        if self.performance["audience"] > 20:
+            result += 10000 + 500 * (self.performance["audience"] - 20)
+        result += 300 * self.performance["audience"]
+        return result
 
 
 def create_statement_data(invoice: dict, plays: dict) -> dict:
