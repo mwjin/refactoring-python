@@ -7,13 +7,15 @@ def statement(invoice: dict, plays: dict) -> str:
     result = f'Invoice (Customer: {invoice["customer"]})\n'
 
     for perf in invoice["performances"]:
-        volume_credits += get_volume_credits_for(perf, plays)
         result += (
             f'\t{get_play_for(perf, plays)["name"]}: '
             f"{get_usd(get_amount_for(perf, plays))} "
             f'({perf["audience"]} Seats)\n'
         )
         total_amount += get_amount_for(perf, plays)
+
+    for perf in invoice["performances"]:
+        volume_credits += get_volume_credits_for(perf, plays)
 
     result += f"Total Amount: {get_usd(total_amount)}\n"
     result += f"Volume Credits: {volume_credits}\n"
