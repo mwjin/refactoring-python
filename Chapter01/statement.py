@@ -46,7 +46,7 @@ def render_plain_text(data: dict) -> str:
     for perf in data["performances"]:
         result += (
             f'\t{perf["play"]["name"]}: '
-            f"{get_usd(get_amount_for(perf))} "
+            f'{get_usd(perf["amount"])} '
             f'({perf["audience"]} Seats)\n'
         )
 
@@ -62,7 +62,7 @@ def get_usd(num: float) -> str:
 def get_total_amount(data: dict) -> int:
     result = 0
     for perf in data["performances"]:
-        result += get_amount_for(perf)
+        result += perf["amount"]
     return result
 
 
