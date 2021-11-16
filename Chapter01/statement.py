@@ -11,6 +11,8 @@ def statement(invoice: dict, plays: dict) -> str:
             f"{get_usd(get_amount_for(perf, plays))} "
             f'({perf["audience"]} Seats)\n'
         )
+
+    for perf in invoice["performances"]:
         total_amount += get_amount_for(perf, plays)
 
     result += f"Total Amount: {get_usd(total_amount)}\n"
