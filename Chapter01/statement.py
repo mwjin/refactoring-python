@@ -11,12 +11,17 @@ def statement(invoice: dict, plays: dict) -> str:
             f'({perf["audience"]} Seats)\n'
         )
 
-    total_amount = 0
-    for perf in invoice["performances"]:
-        total_amount += get_amount_for(perf, plays)
+    total_amount = get_total_amount(invoice, plays)
 
     result += f"Total Amount: {get_usd(total_amount)}\n"
     result += f"Volume Credits: {get_total_volume_credits(invoice, plays)}\n"
+    return result
+
+
+def get_total_amount(invoice: dict, plays: dict) -> int:
+    result = 0
+    for perf in invoice["performances"]:
+        result += get_amount_for(perf, plays)
     return result
 
 
