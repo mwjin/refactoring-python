@@ -8,16 +8,16 @@ def statement(invoice: dict, plays: dict) -> str:
     dollar_format = "${:,.2f}".format
 
     for perf in invoice["performances"]:
-        this_amount = get_amount_for(perf, plays)
         volume_credits += max(perf["audience"] - 30, 0)
         if get_play_for(perf, plays)["type"] == "comedy":
             volume_credits += math.floor(perf["audience"] / 5)
 
         result += (
             f'\t{get_play_for(perf, plays)["name"]}: '
-            f'{dollar_format(this_amount / 100)} ({perf["audience"]} Seats)\n'
+            f"{dollar_format(get_amount_for(perf, plays) / 100)} "
+            f'({perf["audience"]} Seats)\n'
         )
-        total_amount += this_amount
+        total_amount += get_amount_for(perf, plays)
 
     result += f"Total Amount: {dollar_format(total_amount / 100)}\n"
     result += f"Volume Credits: {volume_credits}\n"
