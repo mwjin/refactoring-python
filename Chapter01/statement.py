@@ -3,11 +3,12 @@ import math
 
 def statement(invoice: dict, plays: dict) -> str:
     statement_data = {}
+    statement_data["customer"] = invoice["customer"]
     return render_plain_text(statement_data, invoice, plays)
 
 
 def render_plain_text(data: dict, invoice: dict, plays: dict) -> str:
-    result = f'Invoice (Customer: {invoice["customer"]})\n'
+    result = f'Invoice (Customer: {data["customer"]})\n'
 
     for perf in invoice["performances"]:
         result += (
