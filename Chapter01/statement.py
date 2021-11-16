@@ -2,10 +2,11 @@ import math
 
 
 def statement(invoice: dict, plays: dict) -> str:
-    return render_plain_text(invoice, plays)
+    statement_data = {}
+    return render_plain_text(statement_data, invoice, plays)
 
 
-def render_plain_text(invoice: dict, plays: dict) -> str:
+def render_plain_text(data: dict, invoice: dict, plays: dict) -> str:
     result = f'Invoice (Customer: {invoice["customer"]})\n'
 
     for perf in invoice["performances"]:
