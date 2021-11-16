@@ -78,5 +78,5 @@ def get_total_amount(data: dict) -> int:
 def get_total_volume_credits(data: dict) -> int:
     result = 0
     for perf in data["performances"]:
-        result += get_volume_credits_for(perf)
+        result += perf["volume_credits"]
     return result
