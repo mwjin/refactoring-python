@@ -10,18 +10,18 @@ def statement(invoice: dict, plays: dict) -> str:
         volume_credits += get_volume_credits_for(perf, plays)
         result += (
             f'\t{get_play_for(perf, plays)["name"]}: '
-            f"{dollar_format(get_amount_for(perf, plays) / 100)} "
+            f"{get_usd(get_amount_for(perf, plays))} "
             f'({perf["audience"]} Seats)\n'
         )
         total_amount += get_amount_for(perf, plays)
 
-    result += f"Total Amount: {dollar_format(total_amount / 100)}\n"
+    result += f"Total Amount: {get_usd(total_amount)}\n"
     result += f"Volume Credits: {volume_credits}\n"
     return result
 
 
-def dollar_format(num: float) -> str:
-    return "${:,.2f}".format(num)
+def get_usd(num: float) -> str:
+    return "${:,.2f}".format(num / 100)
 
 
 def get_volume_credits_for(performance: dict, plays: dict) -> int:
