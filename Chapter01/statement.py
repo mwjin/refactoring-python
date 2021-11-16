@@ -77,8 +77,8 @@ def render_plain_text(data: dict) -> str:
             f'({perf["audience"]} Seats)\n'
         )
 
-    result += f"Total Amount: {get_usd(get_total_amount(data))}\n"
-    result += f"Volume Credits: {get_total_volume_credits(data)}\n"
+    result += f"Total Amount: {get_usd(data['total_amount'])}\n"
+    result += f"Volume Credits: {data['total_volume_credits']}\n"
     return result
 
 
