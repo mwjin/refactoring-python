@@ -6,14 +6,19 @@ def statement(invoice: dict, plays: dict) -> str:
     statement_data = {}
     statement_data["customer"] = invoice["customer"]
     statement_data["performances"] = [
-        enrich_performance(perf) for perf in invoice["performances"]
+        enrich_performance(perf, plays) for perf in invoice["performances"]
     ]
     return render_plain_text(statement_data, plays)
 
 
-def enrich_performance(performance: dict) -> dict:
+def enrich_performance(performance: dict, plays: dict) -> dict:
     result = copy(performance)  # Shallow copy
+    result["play"] = get_play_for(performance, plays)
     return result
+
+
+def get_play_for(performance: dict, plays: dict) -> dict:
+    return plays[performance["playID"]]
 
 
 def render_plain_text(data: dict, plays: dict) -> str:
@@ -76,6 +81,3 @@ def get_amount_for(performance: dict, plays: dict) -> int:
 
     return result
 
-
-def get_play_for(performance: dict, plays: dict) -> dict:
-    return plays[performance["playID"]]
