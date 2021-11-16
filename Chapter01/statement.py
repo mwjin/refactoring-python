@@ -1,4 +1,5 @@
 import math
+from copy import copy
 
 
 def statement(invoice: dict, plays: dict) -> str:
@@ -6,6 +7,11 @@ def statement(invoice: dict, plays: dict) -> str:
     statement_data["customer"] = invoice["customer"]
     statement_data["performances"] = invoice["performances"]
     return render_plain_text(statement_data, plays)
+
+
+def enrich_performance(performance: dict) -> dict:
+    result = copy(performance)  # Shallow copy
+    return result
 
 
 def render_plain_text(data: dict, plays: dict) -> str:
