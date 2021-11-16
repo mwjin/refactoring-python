@@ -2,7 +2,6 @@ import math
 
 
 def statement(invoice: dict, plays: dict) -> str:
-    total_amount = 0
     result = f'Invoice (Customer: {invoice["customer"]})\n'
 
     for perf in invoice["performances"]:
@@ -12,6 +11,7 @@ def statement(invoice: dict, plays: dict) -> str:
             f'({perf["audience"]} Seats)\n'
         )
 
+    total_amount = 0
     for perf in invoice["performances"]:
         total_amount += get_amount_for(perf, plays)
 
