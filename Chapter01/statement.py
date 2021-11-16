@@ -21,12 +21,12 @@ def statement(invoice: dict, plays: dict) -> str:
     return result
 
 
-def get_volume_credits_for(perf, plays):
-    volume_credits = max(perf["audience"] - 30, 0)
-    if get_play_for(perf, plays)["type"] == "comedy":
-        volume_credits += math.floor(perf["audience"] / 5)
+def get_volume_credits_for(performance: dict, plays: dict) -> int:
+    result = max(performance["audience"] - 30, 0)
+    if get_play_for(performance, plays)["type"] == "comedy":
+        result += math.floor(performance["audience"] / 5)
 
-    return volume_credits
+    return result
 
 
 def get_amount_for(performance: dict, plays: dict) -> int:
