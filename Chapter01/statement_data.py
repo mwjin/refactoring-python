@@ -3,6 +3,11 @@ from copy import copy
 from functools import reduce
 
 
+class PerformanceCalculator:
+    def __init__(self, performance):
+        self.performance = performance
+
+
 def create_statement_data(invoice: dict, plays: dict) -> dict:
     result = {}
     result["customer"] = invoice["customer"]
@@ -15,6 +20,7 @@ def create_statement_data(invoice: dict, plays: dict) -> dict:
 
 
 def enrich_performance(performance: dict, plays: dict) -> dict:
+    calculator = PerformanceCalculator(performance)
     result = copy(performance)  # Shallow copy
     result["play"] = get_play_for(performance, plays)
     result["amount"] = get_amount_for(result)
