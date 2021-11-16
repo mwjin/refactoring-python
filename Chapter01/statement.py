@@ -6,13 +6,12 @@ def statement(invoice: dict, plays: dict) -> str:
 
 
 def render_plain_text(data: dict) -> str:
-    result = f'Invoice (Customer: {data["customer"]})\n'
+    result = f"Invoice (Customer: {data['customer']})\n"
 
     for perf in data["performances"]:
         result += (
-            f'\t{perf["play"]["name"]}: '
-            f'{get_usd(perf["amount"])} '
-            f'({perf["audience"]} Seats)\n'
+            f"\t{perf['play']['name']}: "
+            f"{get_usd(perf['amount'])} ({perf['audience']} Seats)\n"
         )
 
     result += f"Total Amount: {get_usd(data['total_amount'])}\n"
