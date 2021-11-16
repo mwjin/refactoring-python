@@ -1,7 +1,7 @@
 import math
 
 
-def statement(invoice: dict, plays: dict):
+def statement(invoice: dict, plays: dict) -> str:
     total_amount = 0
     volume_credits = 0
     result = f'Invoice (Customer: {invoice["customer"]})\n'
@@ -22,7 +22,7 @@ def statement(invoice: dict, plays: dict):
     return result
 
 
-def get_amount_for(performance: dict, play: dict):
+def get_amount_for(performance: dict, play: dict) -> int:
     result = 0
 
     if play["type"] == "tragedy":
