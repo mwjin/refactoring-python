@@ -13,12 +13,17 @@ def statement(invoice: dict, plays: dict) -> str:
         )
         total_amount += get_amount_for(perf, plays)
 
-    volume_credits = 0
-    for perf in invoice["performances"]:
-        volume_credits += get_volume_credits_for(perf, plays)
+    volume_credits = get_total_volume_credits(invoice, plays)
 
     result += f"Total Amount: {get_usd(total_amount)}\n"
     result += f"Volume Credits: {volume_credits}\n"
+    return result
+
+
+def get_total_volume_credits(invoice: dict, plays: dict) -> int:
+    result = 0
+    for perf in invoice["performances"]:
+        result += get_volume_credits_for(perf, plays)
     return result
 
 
