@@ -8,7 +8,7 @@ def statement(invoice: dict, plays: dict) -> str:
     dollar_format = "${:,.2f}".format
 
     for perf in invoice["performances"]:
-        play = plays[perf["playID"]]
+        play = get_play_for(perf, plays)
         this_amount = get_amount_for(perf, play)
         volume_credits += max(perf["audience"] - 30, 0)
         if play["type"] == "comedy":
@@ -20,6 +20,10 @@ def statement(invoice: dict, plays: dict) -> str:
     result += f"Total Amount: {dollar_format(total_amount / 100)}\n"
     result += f"Volume Credits: {volume_credits}\n"
     return result
+
+
+def get_play_for(performance: dict, plays: dict) -> dict:
+    return plays[performance["playID"]]
 
 
 def get_amount_for(performance: dict, play: dict) -> int:
