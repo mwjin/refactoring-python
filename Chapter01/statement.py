@@ -14,11 +14,30 @@ def statement(invoice: dict, plays: dict) -> str:
 def enrich_performance(performance: dict, plays: dict) -> dict:
     result = copy(performance)  # Shallow copy
     result["play"] = get_play_for(performance, plays)
+    result["amount"] = get_amount_for(result)
     return result
 
 
 def get_play_for(performance: dict, plays: dict) -> dict:
     return plays[performance["playID"]]
+
+
+def get_amount_for(performance: dict) -> int:
+    result = 0
+
+    if performance["play"]["type"] == "tragedy":
+        result = 40000
+        if performance["audience"] > 30:
+            result += 1000 * (performance["audience"] - 30)
+    elif performance["play"]["type"] == "comedy":
+        result = 30000
+        if performance["audience"] > 20:
+            result += 10000 + 500 * (performance["audience"] - 20)
+        result += 300 * performance["audience"]
+    else:
+        raise ValueError(f'Unknown genre: {performance["play"]["type"]}')
+
+    return result
 
 
 def render_plain_text(data: dict) -> str:
@@ -38,24 +57,6 @@ def render_plain_text(data: dict) -> str:
 
 def get_usd(num: float) -> str:
     return "${:,.2f}".format(num / 100)
-
-
-def get_amount_for(performance: dict) -> int:
-    result = 0
-
-    if performance["play"]["type"] == "tragedy":
-        result = 40000
-        if performance["audience"] > 30:
-            result += 1000 * (performance["audience"] - 30)
-    elif performance["play"]["type"] == "comedy":
-        result = 30000
-        if performance["audience"] > 20:
-            result += 10000 + 500 * (performance["audience"] - 20)
-        result += 300 * performance["audience"]
-    else:
-        raise ValueError(f'Unknown genre: {performance["play"]["type"]}')
-
-    return result
 
 
 def get_total_amount(data: dict) -> int:
