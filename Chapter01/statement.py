@@ -4,6 +4,7 @@ import math
 def statement(invoice: dict, plays: dict) -> str:
     statement_data = {}
     statement_data["customer"] = invoice["customer"]
+    statement_data["performances"] = invoice["performances"]
     return render_plain_text(statement_data, invoice, plays)
 
 
