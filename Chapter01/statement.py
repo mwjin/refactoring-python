@@ -5,7 +5,6 @@ def statement(invoice: dict, plays: dict) -> str:
     total_amount = 0
     volume_credits = 0
     result = f'Invoice (Customer: {invoice["customer"]})\n'
-    dollar_format = "${:,.2f}".format
 
     for perf in invoice["performances"]:
         volume_credits += get_volume_credits_for(perf, plays)
@@ -19,6 +18,10 @@ def statement(invoice: dict, plays: dict) -> str:
     result += f"Total Amount: {dollar_format(total_amount / 100)}\n"
     result += f"Volume Credits: {volume_credits}\n"
     return result
+
+
+def dollar_format(num: float) -> str:
+    return "${:,.2f}".format(num)
 
 
 def get_volume_credits_for(performance: dict, plays: dict) -> int:
