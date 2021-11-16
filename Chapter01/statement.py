@@ -5,34 +5,34 @@ def statement(invoice: dict, plays: dict) -> str:
     statement_data = {}
     statement_data["customer"] = invoice["customer"]
     statement_data["performances"] = invoice["performances"]
-    return render_plain_text(statement_data, invoice, plays)
+    return render_plain_text(statement_data, plays)
 
 
-def render_plain_text(data: dict, invoice: dict, plays: dict) -> str:
+def render_plain_text(data: dict, plays: dict) -> str:
     result = f'Invoice (Customer: {data["customer"]})\n'
 
-    for perf in invoice["performances"]:
+    for perf in data["performances"]:
         result += (
             f'\t{get_play_for(perf, plays)["name"]}: '
             f"{get_usd(get_amount_for(perf, plays))} "
             f'({perf["audience"]} Seats)\n'
         )
 
-    result += f"Total Amount: {get_usd(get_total_amount(invoice, plays))}\n"
-    result += f"Volume Credits: {get_total_volume_credits(invoice, plays)}\n"
+    result += f"Total Amount: {get_usd(get_total_amount(data, plays))}\n"
+    result += f"Volume Credits: {get_total_volume_credits(data, plays)}\n"
     return result
 
 
-def get_total_amount(invoice: dict, plays: dict) -> int:
+def get_total_amount(data: dict, plays: dict) -> int:
     result = 0
-    for perf in invoice["performances"]:
+    for perf in data["performances"]:
         result += get_amount_for(perf, plays)
     return result
 
 
-def get_total_volume_credits(invoice: dict, plays: dict) -> int:
+def get_total_volume_credits(data: dict, plays: dict) -> int:
     result = 0
-    for perf in invoice["performances"]:
+    for perf in data["performances"]:
         result += get_volume_credits_for(perf, plays)
     return result
 
