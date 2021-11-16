@@ -15,6 +15,7 @@ def enrich_performance(performance: dict, plays: dict) -> dict:
     result = copy(performance)  # Shallow copy
     result["play"] = get_play_for(performance, plays)
     result["amount"] = get_amount_for(result)
+    result["volume_credits"] = get_volume_credits_for(result)
     return result
 
 
@@ -36,6 +37,14 @@ def get_amount_for(performance: dict) -> int:
         result += 300 * performance["audience"]
     else:
         raise ValueError(f'Unknown genre: {performance["play"]["type"]}')
+
+    return result
+
+
+def get_volume_credits_for(performance: dict) -> int:
+    result = max(performance["audience"] - 30, 0)
+    if performance["play"]["type"] == "comedy":
+        result += math.floor(performance["audience"] / 5)
 
     return result
 
@@ -70,12 +79,4 @@ def get_total_volume_credits(data: dict) -> int:
     result = 0
     for perf in data["performances"]:
         result += get_volume_credits_for(perf)
-    return result
-
-
-def get_volume_credits_for(performance: dict) -> int:
-    result = max(performance["audience"] - 30, 0)
-    if performance["play"]["type"] == "comedy":
-        result += math.floor(performance["audience"] / 5)
-
     return result
