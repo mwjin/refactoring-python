@@ -5,7 +5,9 @@ from copy import copy
 def statement(invoice: dict, plays: dict) -> str:
     statement_data = {}
     statement_data["customer"] = invoice["customer"]
-    statement_data["performances"] = invoice["performances"]
+    statement_data["performances"] = [
+        enrich_performance(perf) for perf in invoice["performances"]
+    ]
     return render_plain_text(statement_data, plays)
 
 
