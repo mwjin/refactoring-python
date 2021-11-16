@@ -36,30 +36,8 @@ def render_plain_text(data: dict, plays: dict) -> str:
     return result
 
 
-def get_total_amount(data: dict, plays: dict) -> int:
-    result = 0
-    for perf in data["performances"]:
-        result += get_amount_for(perf, plays)
-    return result
-
-
-def get_total_volume_credits(data: dict, plays: dict) -> int:
-    result = 0
-    for perf in data["performances"]:
-        result += get_volume_credits_for(perf, plays)
-    return result
-
-
 def get_usd(num: float) -> str:
     return "${:,.2f}".format(num / 100)
-
-
-def get_volume_credits_for(performance: dict, plays: dict) -> int:
-    result = max(performance["audience"] - 30, 0)
-    if get_play_for(performance, plays)["type"] == "comedy":
-        result += math.floor(performance["audience"] / 5)
-
-    return result
 
 
 def get_amount_for(performance: dict, plays: dict) -> int:
@@ -81,3 +59,24 @@ def get_amount_for(performance: dict, plays: dict) -> int:
 
     return result
 
+
+def get_total_amount(data: dict, plays: dict) -> int:
+    result = 0
+    for perf in data["performances"]:
+        result += get_amount_for(perf, plays)
+    return result
+
+
+def get_total_volume_credits(data: dict, plays: dict) -> int:
+    result = 0
+    for perf in data["performances"]:
+        result += get_volume_credits_for(perf, plays)
+    return result
+
+
+def get_volume_credits_for(performance: dict, plays: dict) -> int:
+    result = max(performance["audience"] - 30, 0)
+    if get_play_for(performance, plays)["type"] == "comedy":
+        result += math.floor(performance["audience"] / 5)
+
+    return result
