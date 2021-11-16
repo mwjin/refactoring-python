@@ -51,18 +51,12 @@ def enrich_performance(performance: dict, plays: dict) -> dict:
     result = copy(performance)  # Shallow copy
     result["play"] = calculator.play
     result["amount"] = calculator.get_amount()
-    result["volume_credits"] = get_volume_credits_for(result)
+    result["volume_credits"] = calculator.get_volume_credits()
     return result
 
 
 def get_play_for(performance: dict, plays: dict) -> dict:
     return plays[performance["playID"]]
-
-
-def get_volume_credits_for(performance: dict) -> int:
-    return PerformanceCalculator(
-        performance, performance["play"]
-    ).get_volume_credits()
 
 
 def get_total_amount(data: dict) -> int:
