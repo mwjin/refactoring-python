@@ -4,8 +4,9 @@ from functools import reduce
 
 
 class PerformanceCalculator:
-    def __init__(self, performance):
+    def __init__(self, performance, play):
         self.performance = performance
+        self.play = play
 
 
 def create_statement_data(invoice: dict, plays: dict) -> dict:
@@ -20,9 +21,11 @@ def create_statement_data(invoice: dict, plays: dict) -> dict:
 
 
 def enrich_performance(performance: dict, plays: dict) -> dict:
-    calculator = PerformanceCalculator(performance)
+    calculator = PerformanceCalculator(
+        performance, get_play_for(performance, plays)
+    )
     result = copy(performance)  # Shallow copy
-    result["play"] = get_play_for(performance, plays)
+    result["play"] = calculator.play
     result["amount"] = get_amount_for(result)
     result["volume_credits"] = get_volume_credits_for(result)
     return result
