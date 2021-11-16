@@ -1,5 +1,6 @@
 import math
 from copy import copy
+from functools import reduce
 
 
 def statement(invoice: dict, plays: dict) -> str:
@@ -54,17 +55,13 @@ def get_volume_credits_for(performance: dict) -> int:
 
 
 def get_total_amount(data: dict) -> int:
-    result = 0
-    for perf in data["performances"]:
-        result += perf["amount"]
-    return result
+    return reduce(lambda total, p: total + p["amount"], data["performances"], 0)
 
 
 def get_total_volume_credits(data: dict) -> int:
-    result = 0
-    for perf in data["performances"]:
-        result += perf["volume_credits"]
-    return result
+    return reduce(
+        lambda total, p: total + p["volume_credits"], data["performances"], 0
+    )
 
 
 def render_plain_text(data: dict) -> str:
