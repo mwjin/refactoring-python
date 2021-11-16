@@ -11,9 +11,7 @@ def statement(invoice: dict, plays: dict) -> str:
             f'({perf["audience"]} Seats)\n'
         )
 
-    total_amount = get_total_amount(invoice, plays)
-
-    result += f"Total Amount: {get_usd(total_amount)}\n"
+    result += f"Total Amount: {get_usd(get_total_amount(invoice, plays))}\n"
     result += f"Volume Credits: {get_total_volume_credits(invoice, plays)}\n"
     return result
 
