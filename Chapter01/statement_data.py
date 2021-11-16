@@ -45,7 +45,7 @@ def create_statement_data(invoice: dict, plays: dict) -> dict:
 
 
 def enrich_performance(performance: dict, plays: dict) -> dict:
-    calculator = PerformanceCalculator(
+    calculator = create_performance_calculator(
         performance, get_play_for(performance, plays)
     )
     result = copy(performance)  # Shallow copy
@@ -53,6 +53,12 @@ def enrich_performance(performance: dict, plays: dict) -> dict:
     result["amount"] = calculator.get_amount()
     result["volume_credits"] = calculator.get_volume_credits()
     return result
+
+
+def create_performance_calculator(
+    performance: dict, play: dict
+) -> PerformanceCalculator:
+    return PerformanceCalculator(performance, play)
 
 
 def get_play_for(performance: dict, plays: dict) -> dict:
