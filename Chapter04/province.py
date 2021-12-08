@@ -41,15 +41,37 @@ class Province:
 
     @property
     def price(self):
-        return self.price
+        return self._price
 
     @price.setter
     def price(self, value):
-        self._price = int(value)
+        self.price = int(value)
 
     @property
     def short_fall(self):
         return self._demand - self.total_production
+
+    @property
+    def profit(self):
+        return self._demand - self.total_production
+
+    @property
+    def demand_value(self):
+        return self.satisfied_demand * self.price
+
+    @property
+    def satisfied_demand(self):
+        return min(self._demand, self.total_production)
+
+    @property
+    def demand_cost(self):
+        remaining_demand = self.demand
+        result = 0
+        for producer in sorted(self.producers, key=lambda p: p.cost):
+            contribution = min(remaining_demand, p.production)
+            remaining_demand -= contribution
+            result += contribution * p.cost
+        return result
 
 
 def sample_province_data() -> dict:
