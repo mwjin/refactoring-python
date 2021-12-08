@@ -51,3 +51,8 @@ def test_province_negative_demand(asia):
     asia.demand = -1
     assert asia.shortfall == -26
     assert asia.profit == -10
+
+
+def test_province_empty_string_demand(asia):
+    with pytest.raises(ValueError):
+        asia.demand = ""
