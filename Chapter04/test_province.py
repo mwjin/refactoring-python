@@ -56,3 +56,14 @@ def test_province_negative_demand(asia):
 def test_province_empty_string_demand(asia):
     with pytest.raises(ValueError):
         asia.demand = ""
+
+
+def test_string_for_producers():
+    data = {
+        "name": "String producers",
+        "producers": "",
+        "demand": 30,
+        "price": 20,
+    }
+    province = Province(data)
+    assert province.shortfall == 0
