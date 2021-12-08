@@ -47,6 +47,10 @@ class Province:
     def price(self, value):
         self._price = int(value)
 
+    @property
+    def short_fall(self):
+        return self._demand - self.total_production
+
 
 def sample_province_data() -> dict:
     return {
