@@ -8,6 +8,17 @@ def asia():
     return Province(sample_province_data())
 
 
+@pytest.fixture(scope="function")
+def province_no_producer():
+    data = {
+        "name": "No producers",
+        "producers": [],
+        "demand": 30,
+        "price": 20,
+    }
+    return Province(data)
+
+
 def test_province_short_fall(asia):
     assert asia.shortfall == 5
 
@@ -20,3 +31,11 @@ def test_set_production_to_producer(asia):
     asia.producers[0].production = 20
     assert asia.shortfall == -6
     assert asia.profit == 292
+
+
+def test_province_no_producer_short_fall(province_no_producer):
+    assert province_no_producer.shortfall == 30
+
+
+def test_province_no_producer_profit(province_no_producer):
+    assert province_no_producer.profit == 0
