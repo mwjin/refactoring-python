@@ -48,7 +48,7 @@ class Province:
         self.price = int(value)
 
     @property
-    def short_fall(self):
+    def shortfall(self):
         return self._demand - self.total_production
 
     @property
