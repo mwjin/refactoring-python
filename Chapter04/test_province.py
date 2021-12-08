@@ -39,3 +39,15 @@ def test_province_no_producer_short_fall(province_no_producer):
 
 def test_province_no_producer_profit(province_no_producer):
     assert province_no_producer.profit == 0
+
+
+def test_province_zero_demand(asia):
+    asia.demand = 0
+    assert asia.shortfall == -25
+    assert asia.profit == 0
+
+
+def test_province_negative_demand(asia):
+    asia.demand = -1
+    assert asia.shortfall == -26
+    assert asia.profit == -10
