@@ -53,7 +53,7 @@ class Province:
 
     @property
     def profit(self):
-        return self._demand - self.total_production
+        return self.demand_value - self.demand_cost
 
     @property
     def demand_value(self):
@@ -68,9 +68,9 @@ class Province:
         remaining_demand = self.demand
         result = 0
         for producer in sorted(self.producers, key=lambda p: p.cost):
-            contribution = min(remaining_demand, p.production)
+            contribution = min(remaining_demand, producer.production)
             remaining_demand -= contribution
-            result += contribution * p.cost
+            result += contribution * producer.cost
         return result
 
 
