@@ -14,3 +14,9 @@ def test_province_short_fall(asia):
 
 def test_province_profit(asia):
     assert asia.profit == 230
+
+
+def test_set_production_to_producer(asia):
+    asia.producers[0].production = 20
+    assert asia.short_fall == -6
+    assert asia.profit == 292
