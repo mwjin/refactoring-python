@@ -1,3 +1,6 @@
+from typing import Union
+
+
 class Producer:
     def __init__(self, province, data):
         self._province = province
@@ -22,7 +25,10 @@ class Producer:
         return self._production
 
     @production.setter
-    def production(self, amount_str):
-        new_production = int(amount_str) if amount_str.is_digit() else 0
-        this._province.total_production += new_production - self._production
+    def production(self, amount: Union[str, int]):
+        if type(amount) == str:
+            new_production = int(amount) if amount.isdigit() else 0
+        else:
+            new_production = amount
+        self._province.total_production += new_production - self._production
         self._production = new_production
