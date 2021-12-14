@@ -17,6 +17,13 @@ def print_banner():
     print("**** Customer Outstanding Debt ****")
 
 
+def calculate_outstanding(invoice):
+    outstanding = 0
+    for order in invoice.orders:
+        outstanding += order.amount
+    return outstanding
+
+
 def record_due_date(invoice):
     today = date.today()
     invoice.due_date = today + timedelta(days=30)
