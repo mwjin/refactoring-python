@@ -21,10 +21,10 @@ def invoice():
 def test_print_owing(capsys, invoice):
     print_owing(invoice)
     expected = (
-        "**** Customer Outstanding Debt ****\n",
-        f"Customer: {invoice.customer}\n",
-        "Outstanding Debt: 150\n",
-        f"Due Date: {invoice.due_date.strftime('%d/%m/%y')}\n",
+        "**** Customer Outstanding Debt ****\n"
+        f"Customer: {invoice.customer}\n"
+        "Outstanding Debt: 150\n"
+        f"Due Date: {invoice.due_date.strftime('%d/%m/%y')}\n"
     )
     captured = capsys.readouterr()
     assert captured.out == expected
