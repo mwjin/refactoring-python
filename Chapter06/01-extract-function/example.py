@@ -2,11 +2,10 @@ from datetime import date, timedelta
 
 
 def print_owing(invoice):
-    outstanding = 0
-
     print_banner()
 
     # Calculate the outstanding debt
+    outstanding = 0
     for order in invoice.orders:
         outstanding += order.amount
 
