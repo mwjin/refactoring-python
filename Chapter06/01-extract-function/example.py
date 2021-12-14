@@ -4,7 +4,7 @@ from datetime import date, timedelta
 def print_owing(invoice):
     outstanding = 0
 
-    print("**** Customer Outstanding Debt ****")
+    print_banner()
 
     # Calculate the outstanding debt
     for order in invoice.orders:
@@ -18,3 +18,7 @@ def print_owing(invoice):
     print(f"Customer: {invoice.customer}")
     print(f"Outstanding Debt: {outstanding}")
     print(f"Due Date: {invoice.due_date.strftime('%d/%m/%y')}")
+
+
+def print_banner():
+    print("**** Customer Outstanding Debt ****")
