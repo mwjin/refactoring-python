@@ -13,10 +13,10 @@ def print_banner():
 
 
 def calculate_outstanding(invoice):
-    outstanding = 0
+    result = 0
     for order in invoice.orders:
-        outstanding += order.amount
-    return outstanding
+        result += order.amount
+    return result
 
 
 def record_due_date(invoice):
