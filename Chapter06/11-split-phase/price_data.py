@@ -10,3 +10,11 @@ class PriceData:
     @property
     def base_price(self):
         return self._product.base_price * self._quantity
+
+    @property
+    def discount(self):
+        return (
+            max(self._quantity - self._product.discount_threshold, 0)
+            * self._product.base_price
+            * self._product.discount_rate
+        )

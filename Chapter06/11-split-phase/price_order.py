@@ -9,11 +9,7 @@ def price_order(product, quantity, shipping_method):
 def calculate_price_data(product, quantity):
     _price_data = PriceData(product, quantity)
     base_price = _price_data.base_price
-    discount = (
-        max(quantity - product.discount_threshold, 0)
-        * product.base_price
-        * product.discount_rate
-    )
+    discount = _price_data.discount
     price_data = {
         "base price": base_price,
         "quantity": quantity,
