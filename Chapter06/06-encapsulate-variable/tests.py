@@ -1,9 +1,8 @@
-from default_owner import default_owner
+from default_owner import default_owner, get_default_owner
 
 
 def test_get_default_owner():
-    global default_owner
-    spaceship_owner = default_owner
+    spaceship_owner = get_default_owner()
     assert spaceship_owner["first name"] == "Minwoo"
     assert spaceship_owner["last name"] == "Jeong"
 
