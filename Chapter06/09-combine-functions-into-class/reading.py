@@ -1,4 +1,4 @@
-from dummy import base_rate
+from dummy import base_rate, tax_threshold
 
 _reading = {"customer": "Minwoo", "quantity": 10, "month": 5, "year": 2017}
 
@@ -30,6 +30,11 @@ class Reading:
     def base_charge(self):
         return base_rate(self.month, self.year) * self.quantity
 
+    @property
+    def taxable_charge(self):
+        return max(0, self.base_charge - tax_threshold(self.year))
+
 
 def acquire_reading():
     return dict(_reading)
+
