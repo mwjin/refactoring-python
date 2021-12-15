@@ -10,7 +10,7 @@ def calculate_price_data(product, quantity):
     _price_data = PriceData(product, quantity)
     price_data = {
         "base price": _price_data.base_price,
-        "quantity": quantity,
+        "quantity": _price_data.quantity,
         "discount": _price_data.discount,
     }
 
