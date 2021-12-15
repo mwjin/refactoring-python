@@ -10,5 +10,5 @@ def test_circum():
 
 def test_book_add_reservation():
     book = Book()
-    book.zz_add_reservation("Minwoo Jeong", False)
+    book.add_reservation("Minwoo Jeong", False)
     assert "Minwoo Jeong" in book.reservations
