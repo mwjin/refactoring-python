@@ -1,4 +1,4 @@
-def readings_outside_range(station, min, max):
+def readings_outside_range(station, min, max, range):
     return [
         reading
         for reading in station["readings"]
