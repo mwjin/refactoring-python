@@ -1,10 +1,10 @@
-default_owner = {"first name": "Minwoo", "last name": "Jeong"}
+_default_owner = {"first name": "Minwoo", "last name": "Jeong"}
 
 
 def get_default_owner():
-    return default_owner
+    return _default_owner
 
 
 def set_default_owner(owner):
-    global default_owner
-    default_owner = owner
+    global _default_owner
+    _default_owner = owner
