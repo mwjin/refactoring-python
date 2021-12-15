@@ -9,3 +9,6 @@ class NumberRange:
     @property
     def max(self):
         return self._data["max"]
+
+    def contains(self, value):
+        return self.min <= value <= self.max
