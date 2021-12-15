@@ -2,10 +2,10 @@ import title
 
 
 def test_read_title():
-    result = title.tphd
+    result = title.title()
     assert result == "Untitled"
 
 
 def test_set_title():
-    title.tphd = "Hello"
-    assert title.tphd == "Hello"
+    title.set_title("Hello")
+    assert title.title() == "Hello"
