@@ -1,4 +1,4 @@
-from default_owner import default_owner, get_default_owner
+from default_owner import get_default_owner, set_default_owner
 
 
 def test_get_default_owner():
@@ -8,7 +8,7 @@ def test_get_default_owner():
 
 
 def test_set_default_owner():
-    global default_owner
-    default_owner = {"first name": "Rebecca", "last name": "Parsons"}
+    set_default_owner({"first name": "Rebecca", "last name": "Parsons"})
+    default_owner = get_default_owner()
     assert default_owner["first name"] == "Rebecca"
-    assert default_owner["last name"]
+    assert default_owner["last name"] == "Parsons"
