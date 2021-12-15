@@ -3,8 +3,8 @@ cpynm = _company_name
 
 
 def company_name():
-    return cpynm
+    return _company_name
 
 
 def print_company_name():
-    print(cpynm, end="")
+    print(_company_name, end="")
