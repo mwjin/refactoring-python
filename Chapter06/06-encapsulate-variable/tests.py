@@ -12,3 +12,10 @@ def test_set_default_owner():
     owner = default_owner()
     assert owner["first name"] == "Rebecca"
     assert owner["last name"] == "Parsons"
+
+
+def test_change_field_of_default_owner():
+    owner1 = default_owner()
+    owner2 = default_owner()
+    owner2["first name"] = "Minho"
+    assert owner1["first name"] == "Minho"
