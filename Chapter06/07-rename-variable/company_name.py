@@ -1,5 +1,4 @@
 _company_name = "Samsung"
-cpynm = _company_name
 
 
 def company_name():
