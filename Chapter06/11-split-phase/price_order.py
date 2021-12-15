@@ -1,7 +1,6 @@
 def price_order(product, quantity, shipping_method):
     price_data = calculate_price_data(product, quantity)
-    price = apply_shipping(price_data, shipping_method)
-    return price
+    return apply_shipping(price_data, shipping_method)
 
 
 def calculate_price_data(product, quantity):
