@@ -1,7 +1,7 @@
 _default_owner = {"first name": "Minwoo", "last name": "Jeong"}
 
 
-def get_default_owner():
+def default_owner():
     return _default_owner
 
 
