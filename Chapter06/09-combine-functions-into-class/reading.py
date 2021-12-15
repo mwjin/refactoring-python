@@ -1,3 +1,5 @@
+from dummy import base_rate
+
 _reading = {"customer": "Minwoo", "quantity": 10, "month": 5, "year": 2017}
 
 
@@ -23,6 +25,10 @@ class Reading:
     @property
     def year(self):
         return self._year
+
+    @property
+    def base_charge(self):
+        return base_rate(self.month, self.year) * self.quantity
 
 
 def acquire_reading():
