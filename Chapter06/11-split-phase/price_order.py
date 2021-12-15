@@ -2,19 +2,13 @@ from price_data import PriceData
 
 
 def price_order(product, quantity, shipping_method):
-    price_data = calculate_price_data(product, quantity)
-    return apply_shipping(price_data, shipping_method)
-
-
-def calculate_price_data(product, quantity):
     _price_data = PriceData(product, quantity)
     price_data = {
         "base price": _price_data.base_price,
         "quantity": _price_data.quantity,
         "discount": _price_data.discount,
     }
-
-    return price_data
+    return apply_shipping(price_data, shipping_method)
 
 
 def apply_shipping(price_data, shipping_method):
