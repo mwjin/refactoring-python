@@ -1,4 +1,5 @@
-cpynm = "Samsung"
+_company_name = "Samsung"
+cpynm = _company_name
 
 
 def company_name():
