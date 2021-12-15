@@ -28,9 +28,7 @@ def test_readings_outside_range(station, operating_plan):
     range = NumberRange(
         operating_plan.temperature_floor, operating_plan.temperature_ceiling
     )
-    readings = readings_outside_range(
-        station, operating_plan.temperature_floor, range,
-    )
+    readings = readings_outside_range(station, range)
     temperatures = {reading["temp"] for reading in readings}
     assert len(temperatures) == 2
     assert 47 in temperatures

@@ -1,6 +1,6 @@
-def readings_outside_range(station, min, range):
+def readings_outside_range(station, range):
     return [
         reading
         for reading in station["readings"]
-        if reading["temp"] < min or reading["temp"] > range.max
+        if reading["temp"] < range.min or reading["temp"] > range.max
     ]
