@@ -4,4 +4,4 @@ class Order:
 
     def is_expensive(self):
         base_price = self._base_price
-        return base_price > 1000
+        return self._base_price > 1000
