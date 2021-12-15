@@ -1,5 +1,5 @@
 import math
 
 
-def circum(radius):
+def circumference(radius):
     return 2 * math.pi * radius
