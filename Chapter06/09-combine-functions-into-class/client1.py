@@ -1,5 +1,6 @@
-from reading import acquire_reading
 from dummy import base_rate
+from reading import Reading, acquire_reading
 
-reading = acquire_reading()
-base_charge = base_rate(reading["month"], reading["year"]) * reading["quantity"]
+reading_data = acquire_reading()
+reading = Reading(reading_data)
+base_charge = reading.base_charge
