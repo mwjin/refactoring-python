@@ -1,4 +1,4 @@
-from example import price
+from price import price
 
 from order import Order
 
