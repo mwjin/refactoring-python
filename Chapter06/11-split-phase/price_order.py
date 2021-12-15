@@ -1,4 +1,10 @@
 def price_order(product, quantity, shipping_method):
+    price_data = calculate_price_data(product, quantity)
+    price = apply_shipping(price_data, shipping_method)
+    return price
+
+
+def calculate_price_data(product, quantity):
     base_price = product.base_price * quantity
     discount = (
         max(quantity - product.discount_threshold, 0)
@@ -10,8 +16,8 @@ def price_order(product, quantity, shipping_method):
         "quantity": quantity,
         "discount": discount,
     }
-    price = apply_shipping(price_data, shipping_method)
-    return price
+
+    return price_data
 
 
 def apply_shipping(price_data, shipping_method):
