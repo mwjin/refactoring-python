@@ -1,4 +1,3 @@
-from dummy import base_rate
 from reading import Reading, acquire_reading
 
 reading_data = acquire_reading()
