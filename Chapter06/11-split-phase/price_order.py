@@ -5,6 +5,11 @@ def price_order(product, quantity, shipping_method):
         * product.base_price
         * product.discount_rate
     )
+    price = apply_shipping(quantity, shipping_method, base_price, discount)
+    return price
+
+
+def apply_shipping(quantity, shipping_method, base_price, discount):
     shipping_per_case = (
         shipping_method.discounted_fee
         if base_price > shipping_method.discount_threshold
