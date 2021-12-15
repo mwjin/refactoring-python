@@ -4,7 +4,7 @@ from address import Address
 from book import Book
 from circum import circum
 from customer import Customer
-from in_new_england import xx_in_new_england
+from in_new_england import in_new_england
 
 
 def test_circum():
@@ -20,5 +20,5 @@ def test_book_add_reservation():
 def test_in_new_england():
     customer_new_england = Customer(Address("MA"))
     customer_korea = Customer(Address("KO"))
-    assert xx_in_new_england(customer_new_england.address.state)
-    assert not xx_in_new_england(customer_korea.address.state)
+    assert in_new_england(customer_new_england.address.state)
+    assert not in_new_england(customer_korea.address.state)
