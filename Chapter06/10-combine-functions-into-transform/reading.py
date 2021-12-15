@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from dummy import base_rate
+from dummy import base_rate, tax_threshold
 
 _reading = {"customer": "Minwoo", "quantity": 10, "month": 5, "year": 2017}
 
@@ -12,6 +12,9 @@ def acquire_reading():
 def enrich_reading(original):
     result = deepcopy(original)
     result["base charge"] = calculate_base_charge(result)
+    result["taxable charge"] = max(
+        0, result["base charge"] - tax_threshold(result["year"])
+    )
     return result
 
 
