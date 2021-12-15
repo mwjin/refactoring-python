@@ -2,8 +2,7 @@ from price_data import PriceData
 
 
 def price_order(product, quantity, shipping_method):
-    price_data = PriceData(product, quantity)
-    return apply_shipping(price_data, shipping_method)
+    return apply_shipping(PriceData(product, quantity), shipping_method)
 
 
 def apply_shipping(price_data, shipping_method):
