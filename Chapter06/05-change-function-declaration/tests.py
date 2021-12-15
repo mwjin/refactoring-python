@@ -1,7 +1,7 @@
 import math
 
-from circum import circum
+from circum import circumference
 
 
-def test_circum():
-    assert circum(3) == 2 * math.pi * 3
+def test_circumference():
+    assert circumference(3) == 2 * math.pi * 3
