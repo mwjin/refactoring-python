@@ -3,9 +3,9 @@ class Book:
         self._reservations = []
 
     def add_reservation(self, customer):
-        self.zz_add_reservation(customer)
+        self.zz_add_reservation(customer, False)
 
-    def zz_add_reservation(self, customer):
+    def zz_add_reservation(self, customer, is_priority):
         self._reservations.append(customer)
 
     @property
