@@ -1,10 +1,14 @@
+from price_data import PriceData
+
+
 def price_order(product, quantity, shipping_method):
     price_data = calculate_price_data(product, quantity)
     return apply_shipping(price_data, shipping_method)
 
 
 def calculate_price_data(product, quantity):
-    base_price = product.base_price * quantity
+    _price_data = PriceData(product, quantity)
+    base_price = _price_data.base_price
     discount = (
         max(quantity - product.discount_threshold, 0)
         * product.base_price
