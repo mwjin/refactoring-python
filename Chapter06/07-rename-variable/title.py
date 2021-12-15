@@ -1,10 +1,10 @@
-tphd = "Untitled"
+_title = "Untitled"
 
 
 def title():
-    return tphd
+    return _title
 
 
 def set_title(title):
-    global tphd
-    tphd = title
+    global _title
+    _title = title
