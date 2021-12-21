@@ -26,6 +26,8 @@ class Order:
 
 class Priority:
     def __init__(self, value) -> None:
+        if isinstance(value, Priority):
+            return value
         self._value = value
 
     def to_string(self):
