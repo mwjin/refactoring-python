@@ -28,7 +28,13 @@ class Priority:
     def __init__(self, value) -> None:
         if isinstance(value, Priority):
             return value
+        if value not in Priority.legal_values():
+            raise ValueError(f"'{value}' is invalid priority.")
         self._value = value
 
     def to_string(self):
         return self._value
+
+    @staticmethod
+    def legal_values():
+        return ["low", "normal", "high", "rush"]
