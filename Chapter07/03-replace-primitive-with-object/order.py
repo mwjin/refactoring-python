@@ -1,15 +1,15 @@
 class Order:
     def __init__(self, data) -> None:
-        self._priority = data["priority"]
+        self._priority = Priority(data["priority"])
         self._id = data["id"]
 
     @property
     def priority(self):
-        return self._priority
+        return self._priority.to_string()
 
     @priority.setter
     def priority(self, value):
-        self._priority = value
+        self._priority = Priority(value)
 
     @property
     def id(self):
