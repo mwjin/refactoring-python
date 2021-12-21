@@ -9,7 +9,7 @@ class Person:
 
     @property
     def courses(self):
-        return self._courses
+        return list(self._courses)
 
     @courses.setter
     def courses(self, new_courses):
