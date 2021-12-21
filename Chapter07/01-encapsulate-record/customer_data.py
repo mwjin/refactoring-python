@@ -6,6 +6,9 @@ class CustomerData:
     def __init__(self, data) -> None:
         self._data = data
 
+    def usage(self, customer_id, year, month):
+        return self._data[customer_id]["usages"][year][month]
+
     def set_usage(self, customer_id, year, month, amount):
         self._data[customer_id]["usages"][year][month] = amount
 
