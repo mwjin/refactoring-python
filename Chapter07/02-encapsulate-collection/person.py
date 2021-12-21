@@ -13,7 +13,7 @@ class Person:
 
     @courses.setter
     def courses(self, new_courses):
-        self._courses = new_courses
+        self._courses = list(new_courses)
 
     def add_course(self, course):
         self._courses.append(course)
