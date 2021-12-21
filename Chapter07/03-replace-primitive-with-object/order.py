@@ -38,3 +38,16 @@ class Priority:
     @staticmethod
     def legal_values():
         return ["low", "normal", "high", "rush"]
+
+    @property
+    def _index(self):
+        return Priority.legal_values().index(self._value)
+
+    def __eq__(self, other):
+        return self._index == other._index
+
+    def __gt__(self, other):
+        return self._index > other._index
+
+    def __lt__(self, other):
+        return self._index < other._index
