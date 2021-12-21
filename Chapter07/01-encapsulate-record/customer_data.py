@@ -1,4 +1,5 @@
 import json
+from copy import deepcopy
 
 
 class CustomerData:
@@ -7,6 +8,10 @@ class CustomerData:
 
     def set_usage(self, customer_id, year, month, amount):
         self._data[customer_id]["usages"][year][month] = amount
+
+    @property
+    def raw_data(self):
+        return deepcopy(self._data)
 
 
 with open("customer_data.json") as infile:
@@ -18,7 +23,7 @@ def get_customer_data():
 
 
 def get_raw_data_of_customers():
-    return customer_data._data
+    return customer_data.raw_data
 
 
 def set_raw_data_of_customers(new_data):
