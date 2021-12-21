@@ -3,7 +3,8 @@ def get_high_priority_count(orders):
         [
             order
             for order in orders
-            if order.priority == "high" or order.priority == "rush"
+            if order.priority_string == "high"
+            or order.priority_string == "rush"
         ]
     )
 

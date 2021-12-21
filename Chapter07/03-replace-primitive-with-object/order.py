@@ -5,6 +5,10 @@ class Order:
 
     @property
     def priority(self):
+        return self._priority
+
+    @property
+    def priority_string(self):
         return self._priority.to_string()
 
     @priority.setter
