@@ -18,3 +18,11 @@ class Order:
     @id.setter
     def id(self, value):
         self._id = value
+
+
+class Priority:
+    def __init__(self, value) -> None:
+        self._value = value
+
+    def to_string(self):
+        return self._value
