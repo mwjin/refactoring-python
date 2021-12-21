@@ -1,4 +1,4 @@
-from customer_data import get_raw_data_of_customers
+from customer_data import get_customer_data, get_raw_data_of_customers
 
 
 def compare_usage(customer_id, later_year, month):
@@ -13,4 +13,4 @@ def compare_usage(customer_id, later_year, month):
 
 
 def set_usage(customer_id, year, month, amount):
-    get_raw_data_of_customers()[customer_id]["usages"][year][month] = amount
+    get_customer_data().set_usage(customer_id, year, month, amount)

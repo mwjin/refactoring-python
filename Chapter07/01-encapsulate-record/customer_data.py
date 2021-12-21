@@ -5,6 +5,9 @@ class CustomerData:
     def __init__(self, data) -> None:
         self._data = data
 
+    def set_usage(self, customer_id, year, month, amount):
+        self._data[customer_id]["usages"][year][month] = amount
+
 
 with open("customer_data.json") as infile:
     customer_data = CustomerData(json.load(infile))
