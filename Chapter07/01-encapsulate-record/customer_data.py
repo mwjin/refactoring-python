@@ -22,10 +22,6 @@ def get_customer_data():
     return customer_data
 
 
-def get_raw_data_of_customers():
-    return customer_data.raw_data
-
-
 def set_raw_data_of_customers(new_data):
     global customer_data
     customer_data = CustomerData(new_data)

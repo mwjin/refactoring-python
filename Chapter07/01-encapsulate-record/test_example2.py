@@ -1,5 +1,5 @@
 import example2
-from customer_data import get_raw_data_of_customers
+from customer_data import get_customer_data
 
 
 def test_compare_usage():
@@ -10,4 +10,4 @@ def test_compare_usage():
 
 def test_set_usage():
     example2.set_usage("1995", "2016", "2", 60)
-    assert get_raw_data_of_customers()["1995"]["usages"]["2016"]["2"] == 60
+    assert get_customer_data().raw_data["1995"]["usages"]["2016"]["2"] == 60
