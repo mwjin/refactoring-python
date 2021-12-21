@@ -1,14 +1,16 @@
-from customer_data import customer_data
+from customer_data import get_raw_data_of_customers
 
 
 def compare_usage(customer_id, later_year, month):
-    global customer_data
     earlier_year = str(int(later_year) - 1)
-    later = customer_data[customer_id]["usages"][later_year][month]
-    earlier = customer_data[customer_id]["usages"][earlier_year][month]
+    later = get_raw_data_of_customers()[customer_id]["usages"][later_year][
+        month
+    ]
+    earlier = get_raw_data_of_customers()[customer_id]["usages"][earlier_year][
+        month
+    ]
     return {"laterAmount": later, "change": later - earlier}
 
 
 def set_amount(customer_id, year, month, amount):
-    global customer_data
-    customer_data[customer_id]["usages"][year][month] = amount
+    get_raw_data_of_customers()[customer_id]["usages"][year][month] = amount
