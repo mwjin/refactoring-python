@@ -24,5 +24,4 @@ organization = Organization({"name": "Apple", "country": "KO"})
 
 
 def get_organization():
-    global organization
     return organization
