@@ -12,5 +12,5 @@ def compare_usage(customer_id, later_year, month):
     return {"laterAmount": later, "change": later - earlier}
 
 
-def set_amount(customer_id, year, month, amount):
+def set_usage(customer_id, year, month, amount):
     get_raw_data_of_customers()[customer_id]["usages"][year][month] = amount
