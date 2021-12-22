@@ -5,8 +5,7 @@ class Order:
 
     @property
     def price(self):
-        discount_factor = self.discount_factor
-        return self.base_price * discount_factor
+        return self.base_price * self.discount_factor
 
     @property
     def base_price(self):
