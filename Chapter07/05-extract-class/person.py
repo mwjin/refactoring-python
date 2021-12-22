@@ -3,6 +3,7 @@ class Person:
         self._name = name
         self._office_area_code = office_area_code
         self._office_number = office_number
+        self._telephone_number = TelephoneNumber()
 
     @property
     def name(self):
