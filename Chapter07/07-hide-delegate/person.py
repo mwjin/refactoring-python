@@ -8,13 +8,5 @@ class Person:
         return self._name
 
     @property
-    def department(self):
-        return self._department
-
-    @department.setter
-    def department(self, value):
-        self._department = value
-
-    @property
     def manager(self):
         return self._department.manager
