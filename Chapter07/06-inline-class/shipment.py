@@ -4,7 +4,7 @@ class Shipment:
 
     @property
     def tracking_info(self):
-        return self._tracking_information.display
+        return f"{self.shipping_company}: {self.tracking_number}"
 
     @property
     def tracking_information(self):
