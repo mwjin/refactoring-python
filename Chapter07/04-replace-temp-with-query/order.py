@@ -5,13 +5,12 @@ class Order:
 
     @property
     def price(self):
-        base_price = self.base_price
         discount_factor = 0.98
 
-        if base_price > 1000:
+        if self.base_price > 1000:
             discount_factor -= 0.03
 
-        return base_price * discount_factor
+        return self.base_price * discount_factor
 
     @property
     def base_price(self):
