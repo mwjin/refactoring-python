@@ -15,7 +15,7 @@ class Person:
 
     @property
     def telephone_number(self):
-        return f"({self.office_area_code}) {self.office_number}"
+        return self._telephone_number.telephone_number
 
     @property
     def office_area_code(self):
@@ -54,4 +54,8 @@ class TelephoneNumber:
     @office_number.setter
     def office_number(self, value):
         self._office_number = value
+
+    @property
+    def telephone_number(self):
+        return f"({self.office_area_code}) {self.office_number}"
 
