@@ -31,3 +31,7 @@ class Person:
     @office_number.setter
     def office_number(self, value):
         self._office_number = value
+
+
+class TelephoneNumber:
+    pass
