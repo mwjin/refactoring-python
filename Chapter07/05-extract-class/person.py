@@ -15,7 +15,7 @@ class Person:
 
     @property
     def telephone_number(self):
-        return self._telephone_number.telephone_number
+        return str(self._telephone_number)
 
     @property
     def office_area_code(self):
@@ -55,7 +55,6 @@ class TelephoneNumber:
     def number(self, value):
         self._number = value
 
-    @property
-    def telephone_number(self):
+    def __str__(self):
         return f"({self.area_code}) {self.number}"
 
