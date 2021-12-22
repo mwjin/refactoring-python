@@ -10,7 +10,3 @@ class Person:
     @property
     def name(self):
         return self._name
-
-    @property
-    def manager(self):
-        return self._department.manager
