@@ -14,3 +14,7 @@ class Person:
     @department.setter
     def department(self, value):
         self._department = value
+
+    @property
+    def manager(self):
+        return self._department.manager
