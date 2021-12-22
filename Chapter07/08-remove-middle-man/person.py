@@ -4,6 +4,10 @@ class Person:
         self._department = department
 
     @property
+    def department(self):
+        return self._department
+
+    @property
     def name(self):
         return self._name
 
