@@ -14,6 +14,14 @@ class Shipment:
     def tracking_information(self, tracking_information):
         self._tracking_information = tracking_information
 
+    @property
+    def tracking_number(self):
+        return self._tracking_information.tracking_number
+
+    @tracking_number.setter
+    def tracking_number(self, tracking_number):
+        self._tracking_information.tracking_number = tracking_number
+
 
 class TrackingInformation:
     def __init__(self, shipping_company, tracking_number):
