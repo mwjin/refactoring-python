@@ -1,8 +1,7 @@
 class Shipment:
-    def __init__(self, tracking_information):
-        self._tracking_information = tracking_information
-        self._shipping_company = self._tracking_information.shipping_company
-        self._tracking_number = self._tracking_information.tracking_number
+    def __init__(self, shipping_company, tracking_number):
+        self._shipping_company = shipping_company
+        self._tracking_number = tracking_number
 
     @property
     def tracking_info(self):

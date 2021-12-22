@@ -1,8 +1,8 @@
-from shipment import Shipment, TrackingInformation
+from shipment import Shipment
 
 
 def test_tracking_info():
-    _shipment = Shipment(TrackingInformation("Apple", 1234))
+    _shipment = Shipment("Apple", 1234)
     assert _shipment.tracking_info == "Apple: 1234"
     _shipment.tracking_number = 5678
     assert _shipment.tracking_info == "Apple: 5678"
