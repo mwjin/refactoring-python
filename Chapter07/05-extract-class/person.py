@@ -1,9 +1,8 @@
 class Person:
     def __init__(self, name, office_area_code, office_number):
         self._name = name
-        self._office_area_code = office_area_code
         self._office_number = office_number
-        self._telephone_number = TelephoneNumber()
+        self._telephone_number = TelephoneNumber(office_area_code)
 
     @property
     def name(self):
@@ -19,11 +18,11 @@ class Person:
 
     @property
     def office_area_code(self):
-        return self._office_area_code
+        return self._telephone_number.office_area_code
 
     @office_area_code.setter
     def office_area_code(self, value):
-        self._office_area_code = value
+        self._telephone_number.office_area_code = value
 
     @property
     def office_number(self):
@@ -35,4 +34,13 @@ class Person:
 
 
 class TelephoneNumber:
-    pass
+    def __init__(self, office_area_code):
+        self._office_area_code = office_area_code
+
+    @property
+    def office_area_code(self):
+        return self._office_area_code
+
+    @office_area_code.setter
+    def office_area_code(self, value):
+        self._office_area_code = value
