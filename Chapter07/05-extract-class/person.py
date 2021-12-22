@@ -35,27 +35,27 @@ class Person:
 
 
 class TelephoneNumber:
-    def __init__(self, office_area_code, office_number):
-        self._office_area_code = office_area_code
-        self._office_number = office_number
+    def __init__(self, area_code, number):
+        self._area_code = area_code
+        self._number = number
 
     @property
-    def office_area_code(self):
-        return self._office_area_code
+    def area_code(self):
+        return self._area_code
 
-    @office_area_code.setter
-    def office_area_code(self, value):
-        self._office_area_code = value
+    @area_code.setter
+    def area_code(self, value):
+        self._area_code = value
 
     @property
-    def office_number(self):
-        return self._office_number
+    def number(self):
+        return self._number
 
-    @office_number.setter
-    def office_number(self, value):
-        self._office_number = value
+    @number.setter
+    def number(self, value):
+        self._number = value
 
     @property
     def telephone_number(self):
-        return f"({self.office_area_code}) {self.office_number}"
+        return f"({self.area_code}) {self.number}"
 
