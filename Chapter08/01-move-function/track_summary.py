@@ -5,11 +5,8 @@ def track_summary(points):
     def calculate_time():
         return 1000000
 
-    def calculate_distance():
-        return top_calculate_distance(points)
-
     total_time = calculate_time()
-    total_distance = round(calculate_distance(), 3)
+    total_distance = round(top_calculate_distance(points), 3)
     pace = round(total_time / 60 / total_distance, 3)
     return {"time": total_time, "distance": total_distance, "pace": pace}
 
