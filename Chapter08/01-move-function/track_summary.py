@@ -33,7 +33,7 @@ def track_summary(points):
     return {"time": total_time, "distance": total_distance, "pace": pace}
 
 
-def top_calculate_distance():
+def top_calculate_distance(points):
     result = 0
     for i in range(1, len(points)):
         result += distance(points[i - 1], points[i])
