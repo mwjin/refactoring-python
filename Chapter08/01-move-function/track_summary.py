@@ -6,12 +6,15 @@ def track_summary(points):
         return 1000000
 
     total_time = calculate_time()
-    total_distance = round(top_calculate_distance(points), 3)
-    pace = round(total_time / 60 / total_distance, 3)
-    return {"time": total_time, "distance": total_distance, "pace": pace}
+    pace = round(total_time / 60 / round(total_distance(points), 3), 3)
+    return {
+        "time": total_time,
+        "distance": round(total_distance(points), 3),
+        "pace": pace,
+    }
 
 
-def top_calculate_distance(points):
+def total_distance(points):
     def distance(p1, p2):
         # haversine formula
         EARTH_RADIUS = 3959
