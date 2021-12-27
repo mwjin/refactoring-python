@@ -31,3 +31,10 @@ def track_summary(points):
     total_distance = round(calculate_distance(), 3)
     pace = round(total_time / 60 / total_distance, 3)
     return {"time": total_time, "distance": total_distance, "pace": pace}
+
+
+def top_calculate_distance():
+    result = 0
+    for i in range(1, len(points)):
+        result += distance(points[i - 1], points[i])
+    return result
