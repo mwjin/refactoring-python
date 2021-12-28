@@ -15,12 +15,8 @@ class Account:
     def bank_charge(self):
         result = 4.5
         if self._days_overdrawn > 0:
-            result += self.over_draft_charge
+            result += self.type.over_draft_charge(self.days_overdrawn)
         return result
-
-    @property
-    def over_draft_charge(self):
-        return self.type.over_draft_charge(self.days_overdrawn)
 
 
 class AccountType:
