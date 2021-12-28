@@ -9,10 +9,10 @@ class Customer:
 
     @property
     def discount_rate(self):
-        return self._discount_rate
+        return self._contract.discount_rate
 
     def _set_discount_rate(self, discount_rate):
-        self._discount_rate = discount_rate
+        self._contract.discount_rate = discount_rate
 
     def become_preferred(self):
         self._set_discount_rate(self.discount_rate + 0.03)
