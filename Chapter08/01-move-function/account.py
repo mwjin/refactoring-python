@@ -20,14 +20,7 @@ class Account:
 
     @property
     def over_draft_charge(self):
-        if self.type.is_premium:
-            base_charge = 10
-            if self.days_overdrawn <= 7:
-                return base_charge
-            else:
-                return base_charge + (self.days_overdrawn - 7) * 0.05
-        else:
-            return self.days_overdrawn * 1.75
+        return self.type.over_draft_charge(self.days_overdrawn)
 
 
 class AccountType:
