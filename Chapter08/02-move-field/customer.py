@@ -4,7 +4,6 @@ from datetime import datetime
 class Customer:
     def __init__(self, name, discount_rate) -> None:
         self._name = name
-        self._discount_rate = discount_rate
         self._contract = CustomerContract(datetime.today(), discount_rate)
 
     @property
