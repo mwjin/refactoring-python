@@ -2,6 +2,7 @@ class Account:
     def __init__(self, number, type, interest_rate) -> None:
         self._number = number
         self._type = type
+        assert self._type.interest_rate == interest_rate
         self._interest_rate = interest_rate
 
     @property
