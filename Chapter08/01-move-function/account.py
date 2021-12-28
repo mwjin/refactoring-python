@@ -15,7 +15,7 @@ class Account:
     def bank_charge(self):
         result = 4.5
         if self._days_overdrawn > 0:
-            result += self.type.over_draft_charge(self.days_overdrawn)
+            result += self.type.over_draft_charge(self)
         return result
 
 
@@ -27,12 +27,12 @@ class AccountType:
     def is_premium(self):
         return self._is_premium
 
-    def over_draft_charge(self, days_overdrawn):
+    def over_draft_charge(self, account):
         if self.is_premium:
             base_charge = 10
-            if days_overdrawn <= 7:
+            if account.days_overdrawn <= 7:
                 return base_charge
             else:
-                return base_charge + (days_overdrawn - 7) * 0.05
+                return base_charge + (account.days_overdrawn - 7) * 0.05
         else:
-            return days_overdrawn * 1.75
+            return account.days_overdrawn * 1.75
