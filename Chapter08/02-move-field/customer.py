@@ -5,7 +5,7 @@ class Customer:
     def __init__(self, name, discount_rate) -> None:
         self._name = name
         self._discount_rate = discount_rate
-        self._contract = CustomerContract(datetime.today())
+        self._contract = CustomerContract(datetime.today(), discount_rate)
 
     @property
     def discount_rate(self):
@@ -23,5 +23,14 @@ class Customer:
 
 
 class CustomerContract:
-    def __init__(self, start_date) -> None:
+    def __init__(self, start_date, discount_rate) -> None:
         self._start_date = start_date
+        self._discount_rate = discount_rate
+
+    @property
+    def discount_rate(self):
+        return self._discount_rate
+
+    @discount_rate.setter
+    def discount_rate(self, new_discount_rate):
+        self._discount_rate = new_discount_rate
