@@ -1,13 +1,11 @@
 class Account:
-    def __init__(self, number, type, interest_rate) -> None:
+    def __init__(self, number, type) -> None:
         self._number = number
         self._type = type
-        assert self._type.interest_rate == interest_rate
-        self._interest_rate = interest_rate
 
     @property
     def interest_rate(self):
-        return self._interest_rate
+        return self._type.interest_rate
 
 
 class AccountType:
