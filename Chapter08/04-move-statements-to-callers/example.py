@@ -2,7 +2,7 @@ def render_person(person):
     result = []
     result.append(f"<p>{person.name}</p>")
     result.append(render_photo(person.photo))
-    result.append(zztmp(person.photo))
+    result.append(emit_photo_data(person.photo))
     result.append(f"<p>Location: {person.photo.location}</p>")
     return "\n".join(result)
 
@@ -13,11 +13,16 @@ def render_photo(photo):
 
 def photo_div(photo):
     return "\n".join(
-        ["<div>", zztmp(photo), f"<p>Location: {photo.location}</p>", "</div>",]
+        [
+            "<div>",
+            emit_photo_data(photo),
+            f"<p>Location: {photo.location}</p>",
+            "</div>",
+        ]
     )
 
 
-def zztmp(photo):
+def emit_photo_data(photo):
     return "\n".join(
         [f"<p>Title: {photo.title}</p>", f"<p>Date: {photo.date}</p>",]
     )
