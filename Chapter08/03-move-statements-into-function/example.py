@@ -15,11 +15,10 @@ def photo_div(photo):
 
 
 def zznew(photo):
-    return "\n".join([f"<p>Title: {photo.title}</p>", emit_photo_data(photo)])
-
-
-def emit_photo_data(photo):
-    result = []
-    result.append(f"<p>Location: {photo.location}</p>")
-    result.append(f"<p>Date: {photo.date}</p>")
-    return "\n".join(result)
+    return "\n".join(
+        [
+            f"<p>Title: {photo.title}</p>",
+            f"<p>Location: {photo.location}</p>",
+            f"<p>Date: {photo.date}</p>",
+        ]
+    )
