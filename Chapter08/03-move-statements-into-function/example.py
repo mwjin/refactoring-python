@@ -12,14 +12,11 @@ def render_photo(photo):
 
 
 def photo_div(photo):
-    return "\n".join(
-        [
-            "<div>",
-            f"<p>Title: {photo.title}</p>",
-            emit_photo_data(photo),
-            "</div>",
-        ]
-    )
+    return "\n".join(["<div>", zznew(photo), "</div>",])
+
+
+def zznew(photo):
+    return "\n".join([f"<p>Title: {photo.title}</p>", emit_photo_data(photo)])
 
 
 def emit_photo_data(photo):
