@@ -2,7 +2,8 @@ def render_person(person):
     result = []
     result.append(f"<p>{person.name}</p>")
     result.append(render_photo(person.photo))
-    result.append(emit_photo_data(person.photo))
+    result.append(zztmp(person.photo))
+    result.append(f"<p>Location: {person.photo.location}</p>")
     return "\n".join(result)
 
 
