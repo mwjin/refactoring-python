@@ -2,7 +2,7 @@ def render_person(person):
     result = []
     result.append(f"<p>{person.name}</p>")
     result.append(render_photo(person.photo))
-    result.append(zznew(person.photo))
+    result.append(emit_photo_data(person.photo))
     return "\n".join(result)
 
 
@@ -11,10 +11,10 @@ def render_photo(photo):
 
 
 def photo_div(photo):
-    return "\n".join(["<div>", zznew(photo), "</div>",])
+    return "\n".join(["<div>", emit_photo_data(photo), "</div>",])
 
 
-def zznew(photo):
+def emit_photo_data(photo):
     return "\n".join(
         [
             f"<p>Title: {photo.title}</p>",
