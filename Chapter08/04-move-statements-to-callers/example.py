@@ -17,10 +17,6 @@ def photo_div(photo):
     )
 
 
-def emit_photo_data(photo):
-    return "\n".join([zztmp(photo), f"<p>Location: {photo.location}</p>"])
-
-
 def zztmp(photo):
     return "\n".join(
         [f"<p>Title: {photo.title}</p>", f"<p>Date: {photo.date}</p>",]
