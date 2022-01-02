@@ -12,7 +12,9 @@ def render_photo(photo):
 
 
 def photo_div(photo):
-    return "\n".join(["<div>", emit_photo_data(photo), "</div>",])
+    return "\n".join(
+        ["<div>", zztmp(photo), f"<p>Location: {photo.location}</p>", "</div>",]
+    )
 
 
 def emit_photo_data(photo):
