@@ -2,8 +2,8 @@ def acquire_data(input):
     lines = input.split("\n")
     first_line = True
     result = []
-
-    for line in lines:
+    loop_items = lines
+    for line in loop_items:
         if first_line:
             first_line = False
             continue
