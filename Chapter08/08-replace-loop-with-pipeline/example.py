@@ -1,12 +1,8 @@
 def acquire_data(input):
     lines = input.split("\n")
-    first_line = True
     result = []
-    loop_items = lines
+    loop_items = lines[1:]
     for line in loop_items:
-        if first_line:
-            first_line = False
-            continue
         if line.strip() == "":
             continue
         record = line.split(",")
