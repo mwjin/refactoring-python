@@ -1,10 +1,8 @@
 def acquire_data(input):
     lines = input.split("\n")
     result = []
-    loop_items = lines[1:]
+    loop_items = filter(lambda line: line.strip() != "", lines[1:])
     for line in loop_items:
-        if line.strip() == "":
-            continue
         record = line.split(",")
         if record[1].strip() == "India":
             result.append(
