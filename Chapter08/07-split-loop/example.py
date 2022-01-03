@@ -6,11 +6,7 @@ def get_youngest_and_total_salary(people):
 
 
 def get_youngest_age(people):
-    youngest = people[0].age
-    for person in people:
-        if person.age < youngest:
-            youngest = person.age
-    return youngest
+    return min(map(lambda p: p.age, people))
 
 
 def get_total_salary(people):
