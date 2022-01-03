@@ -6,5 +6,11 @@ def get_youngest_and_total_salary(people):
         if person.age < youngest:
             youngest = person.age
         total_salary += person.salary
+
+    for person in people:
+        if person.age < youngest:
+            youngest = person.age
+        total_salary += person.salary
+
     return f"Youngest: {youngest}, Total Salary: {total_salary}"
 
