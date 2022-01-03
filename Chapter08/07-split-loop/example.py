@@ -1,3 +1,6 @@
+from functools import reduce
+
+
 def get_youngest_and_total_salary(people):
     return (
         f"Youngest: {get_youngest_age(people)}, "
@@ -10,7 +13,4 @@ def get_youngest_age(people):
 
 
 def get_total_salary(people):
-    total_salary = 0
-    for person in people:
-        total_salary += person.salary
-    return total_salary
+    return reduce(lambda total, p: total + p.salary, people, 0)
