@@ -5,11 +5,11 @@ def distance_travelled(scenario, time):
     secondary_time = time - scenario.delay
     if secondary_time > 0:
         primary_velocity = primary_acceleration * scenario.delay
-        acc = (
+        secondary_acceleration = (
             scenario.primary_force + scenario.secondary_force
         ) / scenario.mass
         result += (
             primary_velocity * secondary_time
-            + 0.5 * acc * secondary_time * secondary_time
+            + 0.5 * secondary_acceleration * secondary_time * secondary_time
         )
     return result
