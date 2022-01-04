@@ -13,3 +13,11 @@ def distance_travelled(scenario, time):
             + 0.5 * secondary_acceleration * secondary_time * secondary_time
         )
     return result
+
+
+def discount(input_value, quantity):
+    if input_value > 50:
+        input_value = input_value - 2
+    if quantity > 100:
+        input_value = input_value - 1
+    return input_value
