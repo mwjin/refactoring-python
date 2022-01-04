@@ -20,4 +20,4 @@ class Organization:
         self._country = new_country
 
 
-organization = Organization({"name": "Samsung", "country": "KO"})
+organization = Organization({"title": "Samsung", "country": "KO"})
