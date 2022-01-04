@@ -1,10 +1,10 @@
 def distance_travelled(scenario, time):
-    acc = scenario.primary_force / scenario.mass  # a = F / m
+    primary_acceleration = scenario.primary_force / scenario.mass  # a = F / m
     primary_time = min(time, scenario.delay)
-    result = 0.5 * acc * primary_time * primary_time
+    result = 0.5 * primary_acceleration * primary_time * primary_time
     secondary_time = time - scenario.delay
     if secondary_time > 0:
-        primary_velocity = acc * scenario.delay
+        primary_velocity = primary_acceleration * scenario.delay
         acc = (
             scenario.primary_force + scenario.secondary_force
         ) / scenario.mass
