@@ -1,15 +1,15 @@
 class Organization:
     def __init__(self, data):
-        self._name = data["name"]
+        self._title = data["name"]
         self._country = data["country"]
 
     @property
     def name(self):
-        return self._name
+        return self._title
 
     @name.setter
     def name(self, new_name):
-        self._name = new_name
+        self._title = new_name
 
     @property
     def country(self):
