@@ -4,11 +4,11 @@ class Organization:
         self._country = data["country"]
 
     @property
-    def name(self):
+    def title(self):
         return self._title
 
-    @name.setter
-    def name(self, new_name):
+    @title.setter
+    def title(self, new_name):
         self._title = new_name
 
     @property
