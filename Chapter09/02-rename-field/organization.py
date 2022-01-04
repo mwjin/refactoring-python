@@ -1,6 +1,6 @@
 class Organization:
     def __init__(self, data):
-        self._title = data["name"]
+        self._title = data["title"] if "title" in data else data["name"]
         self._country = data["country"]
 
     @property
