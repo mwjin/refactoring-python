@@ -15,7 +15,8 @@ def distance_travelled(scenario, time):
     return result
 
 
-def discount(input_value, quantity):
+def discount(original_input_value, quantity):
+    input_value = original_input_value
     if input_value > 50:
         input_value = input_value - 2
     if quantity > 100:
