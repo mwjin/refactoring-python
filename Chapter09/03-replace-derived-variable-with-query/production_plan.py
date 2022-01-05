@@ -8,10 +8,6 @@ class ProductionPlan:
 
     @property
     def production(self):
-        return self.calculated_production
-
-    @property
-    def calculated_production(self):
         return reduce(lambda sum, a: sum + a.amount, self._adjustments, 0)
 
     def apply_adjustment(self, adjustment):
