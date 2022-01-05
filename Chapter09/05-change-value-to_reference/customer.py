@@ -1,4 +1,6 @@
 class Customer:
+    repository = {}
+
     def __init__(self, id):
         self._id = id
         self._name = ""
@@ -14,3 +16,9 @@ class Customer:
     @name.setter
     def name(self, arg):
         self._name = arg
+
+    @staticmethod
+    def register_customer(id):
+        if id not in Customer.repository:
+            Customer.repository[id] = Customer(id)
+        return Customer.repository.get(id)
