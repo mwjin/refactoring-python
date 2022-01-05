@@ -9,7 +9,15 @@ class ProductionPlan:
 
     @property
     def production(self):
+        assert (
+            self._production_accumulator
+            == self.calculated_production_accumulator
+        )
         return self._initial_production + self._production_accumulator
+
+    @property
+    def calculated_production_accumulator(self):
+        return reduce(lambda sum, a: sum + a.amount, self._adjustments, 0)
 
     def apply_adjustment(self, adjustment):
         self._adjustments.append(adjustment)
