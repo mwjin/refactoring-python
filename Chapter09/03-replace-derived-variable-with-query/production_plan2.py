@@ -9,11 +9,7 @@ class ProductionPlan:
 
     @property
     def production(self):
-        assert (
-            self._production_accumulator
-            == self.calculated_production_accumulator
-        )
-        return self._initial_production + self._production_accumulator
+        return self._initial_production + self.calculated_production_accumulator
 
     @property
     def calculated_production_accumulator(self):
