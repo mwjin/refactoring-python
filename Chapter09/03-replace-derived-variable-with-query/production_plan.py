@@ -8,8 +8,7 @@ class ProductionPlan:
 
     @property
     def production(self):
-        assert self._production == self.calculated_production
-        return self._production
+        return self.calculated_production
 
     @property
     def calculated_production(self):
