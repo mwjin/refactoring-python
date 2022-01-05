@@ -3,7 +3,7 @@ from telephone_number import TelephoneNumber
 
 class Person:
     def __init__(self):
-        self._telephone_number = TelephoneNumber()
+        self._telephone_number = TelephoneNumber(82, 123456789)
 
     @property
     def office_area_code(self):
@@ -11,7 +11,7 @@ class Person:
 
     @office_area_code.setter
     def office_area_code(self, arg):
-        self._telephone_number.area_code = arg
+        self._telephone_number = TelephoneNumber(arg, self.office_number)
 
     @property
     def office_number(self):
@@ -19,4 +19,4 @@ class Person:
 
     @office_number.setter
     def office_number(self, arg):
-        self._telephone_number.number = arg
+        self._telephone_number = TelephoneNumber(self.office_area_code, arg)
