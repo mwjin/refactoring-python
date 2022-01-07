@@ -1,8 +1,9 @@
 def get_charge(quantity, date, plan):
-    if is_summer(date, plan):
-        charge = get_summer_charge(quantity, plan)
-    else:
-        charge = get_regular_charge(quantity, plan)
+    charge = (
+        get_summer_charge(quantity, plan)
+        if is_summer(date, plan)
+        else get_regular_charge(quantity, plan)
+    )
     return charge
 
 
