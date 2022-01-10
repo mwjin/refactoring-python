@@ -5,9 +5,8 @@ def disability_amount(employee):
 
 
 def vacation_amount(employee):
-    if employee.on_vacation:
-        if employee.seniority > 10:
-            return 1
+    if employee.on_vacation and employee.seniority > 10:
+        return 1
     return 0.5
 
 
