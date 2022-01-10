@@ -11,10 +11,9 @@ def adjusted_capital(instrument):
     result = 0
     if instrument.capital <= 0:
         return 0
-    if instrument.interest_rate > 0 and instrument.duration > 0:
-        result = (
-            instrument.income
-            / instrument.duration
-            * instrument.adjustment_factor
-        )
+    if not (instrument.interest_rate > 0 and instrument.duration > 0):
+        return 0
+    result = (
+        instrument.income / instrument.duration * instrument.adjustment_factor
+    )
     return result
