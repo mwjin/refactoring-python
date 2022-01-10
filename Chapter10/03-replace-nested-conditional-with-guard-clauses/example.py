@@ -9,9 +9,11 @@ def pay_amount(employee):
 
 def adjusted_capital(instrument):
     result = 0
-    if instrument.capital <= 0:
-        return 0
-    if instrument.interest_rate <= 0 or instrument.duration <= 0:
+    if (
+        instrument.capital <= 0
+        or instrument.interest_rate <= 0
+        or instrument.duration <= 0
+    ):
         return 0
     result = (
         instrument.income / instrument.duration * instrument.adjustment_factor
