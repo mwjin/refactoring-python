@@ -29,6 +29,18 @@ class Bird:
             return None
 
 
+class EuropeanSwallow(Bird):
+    pass
+
+
+class AfricanSwallow(Bird):
+    pass
+
+
+class NorwegianBlueParrot(Bird):
+    pass
+
+
 class BirdObject:
     def __init__(self, name, type):
         self.name = name
@@ -47,8 +59,19 @@ def speeds(birds):
 
 
 def plumage(bird):
-    return Bird(bird).plumage
+    return create_bird(bird).plumage
 
 
 def air_speed_velocity(bird):
-    return Bird(bird).air_speed_velocity
+    return create_bird(bird).air_speed_velocity
+
+
+def create_bird(bird):
+    if bird.type == "European Swallow":
+        return EuropeanSwallow(bird)
+    elif bird.type == "African Swallow":
+        return AfricanSwallow(bird)
+    elif bird.type == "Norwegian Blue Parrot":
+        return NorwegianBlueParrot(bird)
+    else:
+        return Bird(bird)
