@@ -13,7 +13,7 @@ class Bird:
         elif self._type == "African Swallow":
             raise RuntimeError
         elif self._type == "Norwegian Blue Parrot":
-            return "Scorched" if self._voltage > 100 else "Pretty"
+            raise RuntimeError
         else:
             return "Unknown"
 
@@ -42,7 +42,9 @@ class AfricanSwallow(Bird):
 
 
 class NorwegianBlueParrot(Bird):
-    pass
+    @property
+    def plumage(self):
+        return "Scorched" if self._voltage > 100 else "Pretty"
 
 
 class BirdObject:
