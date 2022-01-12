@@ -12,14 +12,7 @@ class Bird:
 
     @property
     def air_speed_velocity(self):
-        if self._type == "European Swallow":
-            return 35
-        elif self._type == "African Swallow":
-            return 40 - 2 * self._number_of_coconuts
-        elif self._type == "Norwegian Blue Parrot":
-            return 0 if self._is_nailed else 10 + self._voltage / 10
-        else:
-            return None
+        return None
 
 
 class EuropeanSwallow(Bird):
@@ -27,17 +20,29 @@ class EuropeanSwallow(Bird):
     def plumage(self):
         return "Normal"
 
+    @property
+    def air_speed_velocity(self):
+        return 35
+
 
 class AfricanSwallow(Bird):
     @property
     def plumage(self):
         return "Exhausted" if self._number_of_coconuts > 2 else "Normal"
 
+    @property
+    def air_speed_velocity(self):
+        return 40 - 2 * self._number_of_coconuts
+
 
 class NorwegianBlueParrot(Bird):
     @property
     def plumage(self):
         return "Scorched" if self._voltage > 100 else "Pretty"
+
+    @property
+    def air_speed_velocity(self):
+        return 0 if self._is_nailed else 10 + self._voltage / 10
 
 
 class BirdObject:
