@@ -36,12 +36,13 @@ class Rating:
             result += 1
         if self.voyage.zone == "East India":
             result += 1
+        result += self.history_length_factor
         result += self.voyage_and_history_length_factor
         return result
 
     @property
     def voyage_and_history_length_factor(self):
-        result = self.history_length_factor
+        result = 0
         if self.voyage.length > 14:
             result -= 1
         return result
@@ -62,7 +63,6 @@ class ExperiencedChinaRating(Rating):
     @property
     def voyage_and_history_length_factor(self):
         result = 3
-        result += self.history_length_factor
         if self.voyage.length > 12:
             result += 1
         if self.voyage.length > 18:
