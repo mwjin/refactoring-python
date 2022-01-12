@@ -4,10 +4,10 @@ def check_for_miscreants(people):
         if not found:
             if p == "Joker":
                 send_alert()
-                found = True
+                return True
             if p == "Saruman":
                 send_alert()
-                found = True
+                return True
     return found
 
 
