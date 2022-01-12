@@ -11,7 +11,7 @@ class Bird:
         if self._type == "European Swallow":
             raise RuntimeError
         elif self._type == "African Swallow":
-            return "Exhausted" if self._number_of_coconuts > 2 else "Normal"
+            raise RuntimeError
         elif self._type == "Norwegian Blue Parrot":
             return "Scorched" if self._voltage > 100 else "Pretty"
         else:
@@ -36,7 +36,9 @@ class EuropeanSwallow(Bird):
 
 
 class AfricanSwallow(Bird):
-    pass
+    @property
+    def plumage(self):
+        return "Exhausted" if self._number_of_coconuts > 2 else "Normal"
 
 
 class NorwegianBlueParrot(Bird):
