@@ -7,8 +7,7 @@ class Customer:
         return self._discount_rate
 
     def apply_discount(self, number):
-        return (
-            number - (self.discount_rate * number)
-            if self.discount_rate
-            else number
-        )
+        if self.discount_rate:
+            return number - (self.discount_rate * number)
+        else:
+            return number
