@@ -42,19 +42,10 @@ class Rating:
     @property
     def voyage_and_history_length_factor(self):
         result = 0
-        if self.voyage.zone == "China" and self.has_china_history:
-            result += 3
-            if len(self.history) > 10:
-                result += 1
-            if self.voyage.length > 12:
-                result += 1
-            if self.voyage.length > 18:
-                result += 1
-        else:
-            if len(self.history) > 8:
-                result += 1
-            if self.voyage.length > 14:
-                result -= 1
+        if len(self.history) > 8:
+            result += 1
+        if self.voyage.length > 14:
+            result -= 1
         return result
 
     def has_china_history(self):
@@ -65,6 +56,17 @@ class ExperiencedChinaRating(Rating):
     @property
     def captain_history_risk(self):
         return max(super().captain_history_risk - 2, 0)
+
+    @property
+    def voyage_and_history_length_factor(self):
+        result = 3
+        if len(self.history) > 10:
+            result += 1
+        if self.voyage.length > 12:
+            result += 1
+        if self.voyage.length > 18:
+            result += 1
+        return result
 
 
 class VoyageObject:
