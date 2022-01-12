@@ -1,12 +1,5 @@
 def check_for_miscreants(people):
-    for p in people:
-        if p == "Joker":
-            send_alert()
-            return True
-        if p == "Saruman":
-            send_alert()
-            return True
-    return False
+    return any(map(lambda p: p in ["Joker", "Saruman"], people))
 
 
 def send_alert():
