@@ -7,6 +7,38 @@ class Bird:
         self._is_nailed = bird_object.is_nailed
 
     @property
+    def name(self):
+        return self._name
+
+    @property
+    def type(self):
+        return self._type
+
+    @property
+    def number_of_coconuts(self):
+        return self._number_of_coconuts
+
+    @number_of_coconuts.setter
+    def number_of_coconuts(self, arg):
+        self._number_of_coconuts = arg
+
+    @property
+    def voltage(self):
+        return self._voltage
+
+    @voltage.setter
+    def voltage(self, arg):
+        self._voltage = arg
+
+    @property
+    def is_nailed(self):
+        return self._is_nailed
+
+    @is_nailed.setter
+    def is_nailed(self, arg):
+        self._is_nailed = arg
+
+    @property
     def plumage(self):
         return "Unknown"
 
