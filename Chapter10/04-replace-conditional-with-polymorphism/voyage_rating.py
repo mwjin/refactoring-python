@@ -57,6 +57,10 @@ class Rating:
         return any(filter(lambda v: v.zone == "China", self.history))
 
 
+class ExperiencedChinaRating(Rating):
+    pass
+
+
 class VoyageObject:
     def __init__(self, zone, length) -> None:
         self.zone = zone
