@@ -10,3 +10,6 @@ def test_rating():
         HistoryObject("West Africa", 7),
     ]
     assert rating(voyage, history) == "B"
+
+    voyage.zone = "China"
+    assert rating(voyage, history) == "A"

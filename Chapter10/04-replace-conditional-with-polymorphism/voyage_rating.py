@@ -27,8 +27,6 @@ class Rating:
         if len(self.history) < 5:
             result += 4
         result += len(list(filter(lambda v: v.profit < 0, self.history)))
-        if self.voyage.zone == "China" and self.has_china_history:
-            result -= 2
         return max(result, 0)
 
     @property
@@ -58,7 +56,9 @@ class Rating:
 
 
 class ExperiencedChinaRating(Rating):
-    pass
+    @property
+    def captain_history_risk(self):
+        return max(super().captain_history_risk - 2, 0)
 
 
 class VoyageObject:
