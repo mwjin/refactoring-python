@@ -1,43 +1,44 @@
-from bird import BirdObject, plumage, air_speed_velocity
+from bird import BirdObject, create_bird
 
 
-def get_bird_object(type):
-    return BirdObject("test", type)
+def get_bird(type):
+    return create_bird(BirdObject("test", type))
 
 
 def test_plumage():
-    european = get_bird_object("European Swallow")
-    assert plumage(european) == "Normal"
+    european = get_bird("European Swallow")
+    assert european.plumage == "Normal"
 
-    african = get_bird_object("African Swallow")
-    assert plumage(african) == "Normal"
+    african = get_bird("African Swallow")
+    assert african.plumage == "Normal"
     african.number_of_coconuts = 3
-    assert plumage(african) == "Exhausted"
+    assert african.plumage == "Exhausted"
 
-    norwegian = get_bird_object("Norwegian Blue Parrot")
-    assert plumage(norwegian) == "Pretty"
+    norwegian = get_bird("Norwegian Blue Parrot")
+    assert norwegian.plumage == "Pretty"
     norwegian.voltage = 101
-    assert plumage(norwegian) == "Scorched"
+    assert norwegian.plumage == "Scorched"
 
-    other = get_bird_object("Eagle")
-    assert plumage(other) == "Unknown"
+    other = get_bird("Eagle")
+    assert other.plumage == "Unknown"
 
 
 def test_air_speed_velocity():
-    european = get_bird_object("European Swallow")
-    assert air_speed_velocity(european) == 35
+    european = get_bird("European Swallow")
+    assert european.air_speed_velocity == 35
 
-    african = get_bird_object("African Swallow")
-    assert air_speed_velocity(african) == 40
+    african = get_bird("African Swallow")
+    assert african.air_speed_velocity == 40
     african.number_of_coconuts = 3
-    assert air_speed_velocity(african) == 34
+    assert african.air_speed_velocity == 34
 
-    norwegian = get_bird_object("Norwegian Blue Parrot")
-    assert air_speed_velocity(norwegian) == 10
+    norwegian = get_bird("Norwegian Blue Parrot")
+    assert norwegian.air_speed_velocity == 10
     norwegian.voltage = 101
-    assert air_speed_velocity(norwegian) == 20.1
+    assert norwegian.air_speed_velocity == 20.1
     norwegian.is_nailed = True
-    assert air_speed_velocity(norwegian) == 0
+    assert norwegian.air_speed_velocity == 0
 
-    other = get_bird_object("Eagle")
-    assert air_speed_velocity(other) is None
+    other = get_bird("Eagle")
+    assert other.air_speed_velocity is None
+
