@@ -6,6 +6,11 @@ class Customer:
     def discount_rate(self):
         return self._discount_rate
 
+    @discount_rate.setter
+    def discount_rate(self, arg):
+        assert arg >= 0
+        self._discount_rate = arg
+
     def apply_discount(self, number):
         if self.discount_rate:
             assert self.discount_rate >= 0
