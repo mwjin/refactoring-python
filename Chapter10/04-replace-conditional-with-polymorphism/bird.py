@@ -55,19 +55,16 @@ class BirdObject:
 
 
 def plumages(birds):
-    return map(lambda b: [b.name, plumage(b)], birds)
+    return map(
+        lambda b: [b.name, b.plumage], map(lambda b: create_bird(b), birds)
+    )
 
 
 def speeds(birds):
-    return map(lambda b: [b.name, air_speed_velocity(b)], birds)
-
-
-def plumage(bird):
-    return create_bird(bird).plumage
-
-
-def air_speed_velocity(bird):
-    return create_bird(bird).air_speed_velocity
+    return map(
+        lambda b: [b.name, b.air_speed_velocity],
+        map(lambda b: create_bird(b), birds),
+    )
 
 
 def create_bird(bird):
