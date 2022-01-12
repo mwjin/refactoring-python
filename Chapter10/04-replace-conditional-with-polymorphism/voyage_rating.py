@@ -36,6 +36,12 @@ class Rating:
             result += 1
         if self.voyage.zone == "East India":
             result += 1
+        result += self.voyage_and_history_length_factor
+        return result
+
+    @property
+    def voyage_and_history_length_factor(self):
+        result = 0
         if self.voyage.zone == "China" and self.has_china_history:
             result += 3
             if len(self.history) > 10:
