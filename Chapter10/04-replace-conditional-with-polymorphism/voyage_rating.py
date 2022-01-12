@@ -42,10 +42,7 @@ class Rating:
 
     @property
     def voyage_length_factor(self):
-        result = 0
-        if self.voyage.length > 14:
-            result -= 1
-        return result
+        return -1 if self.voyage.length > 14 else 0
 
     @property
     def history_length_factor(self):
