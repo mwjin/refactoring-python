@@ -8,14 +8,7 @@ class Bird:
 
     @property
     def plumage(self):
-        if self._type == "European Swallow":
-            raise RuntimeError
-        elif self._type == "African Swallow":
-            raise RuntimeError
-        elif self._type == "Norwegian Blue Parrot":
-            raise RuntimeError
-        else:
-            return "Unknown"
+        return "Unknown"
 
     @property
     def air_speed_velocity(self):
