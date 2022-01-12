@@ -8,6 +8,7 @@ class Customer:
 
     def apply_discount(self, number):
         if self.discount_rate:
+            assert self.discount_rate >= 0
             return number - (self.discount_rate * number)
         else:
             return number
