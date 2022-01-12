@@ -41,4 +41,3 @@ def test_air_speed_velocity():
 
     other = get_bird("Eagle")
     assert other.air_speed_velocity is None
-
