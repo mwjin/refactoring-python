@@ -1,14 +1,12 @@
 def check_for_miscreants(people):
-    found = False
     for p in people:
-        if not found:
-            if p == "Joker":
-                send_alert()
-                return True
-            if p == "Saruman":
-                send_alert()
-                return True
-    return found
+        if p == "Joker":
+            send_alert()
+            return True
+        if p == "Saruman":
+            send_alert()
+            return True
+    return False
 
 
 def send_alert():
