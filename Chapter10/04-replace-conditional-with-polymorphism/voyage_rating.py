@@ -74,5 +74,13 @@ class HistoryObject:
 
 
 def rating(voyage, history):
-    return Rating(voyage, history).value
+    return create_rating(voyage, history).value
 
+
+def create_rating(voyage, history):
+    if voyage.zone == "China" and any(
+        filter(lambda v: v.zone == "China", history)
+    ):
+        return ExperiencedChinaRating(voyage, history)
+    else:
+        return Rating(voyage, history)
