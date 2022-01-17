@@ -43,6 +43,10 @@ class UnknownCustomer:
         """Nothing to do"""
         pass
 
+    @property
+    def payment_history(self):
+        return NullPaymentHistory()
+
 
 class BillingPlan:
     def __init__(self, name):
