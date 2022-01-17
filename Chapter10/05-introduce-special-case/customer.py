@@ -30,6 +30,10 @@ class UnknownCustomer:
     def is_unknown(self):
         return True
 
+    @property
+    def name(self):
+        return "Resident"
+
 
 class BillingPlan:
     def __init__(self, name):
