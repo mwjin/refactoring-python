@@ -8,15 +8,12 @@ def get_customer_name(site):
 
 def get_billing_plan(customer):
     # Client 2
-    return (
-        BillingPlan("Basic") if is_unknown(customer) else customer.billing_plan
-    )
+    return customer.billing_plan
 
 
 def reset_billing_plan(customer):
     # Client 3
-    if not is_unknown(customer):
-        customer.billing_plan = BillingPlan("New")
+    customer.billing_plan = BillingPlan("New")
 
 
 def get_weeks_delinquent_in_last_year(customer):
