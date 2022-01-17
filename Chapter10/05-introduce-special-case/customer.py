@@ -20,6 +20,10 @@ class Customer:
     def payment_history(self):
         return self._payment_history
 
+    @property
+    def is_unknown(self):
+        return False
+
 
 class BillingPlan:
     def __init__(self, name):
