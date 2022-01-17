@@ -18,11 +18,7 @@ def reset_billing_plan(customer):
 
 def get_weeks_delinquent_in_last_year(customer):
     # Client 4
-    return (
-        0
-        if is_unknown(customer)
-        else customer.payment_history.weeks_delinquent_in_last_year
-    )
+    return customer.payment_history.weeks_delinquent_in_last_year
 
 
 def is_unknown(customer):
