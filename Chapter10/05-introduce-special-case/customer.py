@@ -34,6 +34,15 @@ class UnknownCustomer:
     def name(self):
         return "Resident"
 
+    @property
+    def billing_plan(self):
+        return BillingPlan("Basic")
+
+    @billing_plan.setter
+    def billing_plan(self, arg):
+        """Nothing to do"""
+        pass
+
 
 class BillingPlan:
     def __init__(self, name):
