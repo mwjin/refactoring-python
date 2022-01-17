@@ -1,6 +1,6 @@
 import pytest
 
-from customer import BillingPlan, Customer, PaymentHistory
+from customer import BillingPlan, Customer, PaymentHistory, UnknownCustomer
 from example import (
     get_billing_plan,
     get_customer_name,
@@ -17,7 +17,7 @@ def customer():
 
 @pytest.fixture
 def unknown_customer():
-    return "Unknown Customer"
+    return UnknownCustomer()
 
 
 def test_get_customer_name(customer, unknown_customer):
