@@ -4,11 +4,7 @@ from customer import BillingPlan, Customer, UnknownCustomer
 def get_customer_name(site):
     # Client 1
     customer = site.customer
-
-    if is_unknown(customer):
-        customer_name = "Resident"
-    else:
-        customer_name = customer.name
+    customer_name = customer.name
 
     return customer_name
 
