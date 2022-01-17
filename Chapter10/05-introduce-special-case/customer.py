@@ -60,3 +60,9 @@ class PaymentHistory:
     @property
     def weeks_delinquent_in_last_year(self):
         return self._weeks_delinquent_in_last_year
+
+
+class NullPaymentHistory:
+    @property
+    def weeks_delinquent_in_last_year(self):
+        return 0
