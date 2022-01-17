@@ -3,10 +3,7 @@ from customer import BillingPlan, Customer, UnknownCustomer
 
 def get_customer_name(site):
     # Client 1
-    customer = site.customer
-    customer_name = customer.name
-
-    return customer_name
+    return site.customer.name
 
 
 def get_billing_plan(customer):
