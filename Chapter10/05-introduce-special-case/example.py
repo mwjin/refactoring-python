@@ -1,11 +1,11 @@
-from customer import BillingPlan
+from customer import BillingPlan, Customer
 
 
 def get_customer_name(site):
     # Client 1
     customer = site.customer
 
-    if customer == "Unknown Customer":
+    if is_unknown(customer):
         customer_name = "Resident"
     else:
         customer_name = customer.name
@@ -16,15 +16,13 @@ def get_customer_name(site):
 def get_billing_plan(customer):
     # Client 2
     return (
-        BillingPlan("Basic")
-        if customer == "Unknown Customer"
-        else customer.billing_plan
+        BillingPlan("Basic") if is_unknown(customer) else customer.billing_plan
     )
 
 
 def reset_billing_plan(customer):
     # Client 3
-    if customer != "Unknown Customer":
+    if not is_unknown(customer):
         customer.billing_plan = BillingPlan("New")
 
 
@@ -32,6 +30,12 @@ def get_weeks_delinquent_in_last_year(customer):
     # Client 4
     return (
         0
-        if customer == "Unknown Customer"
+        if is_unknown(customer)
         else customer.payment_history.weeks_delinquent_in_last_year
     )
+
+
+def is_unknown(customer):
+    if not (isinstance(customer, Customer) or customer == "Unknown Customer"):
+        raise ValueError(f"'{customer}' is not an actual customer.")
+    return customer == "Unknown Customer"
