@@ -1,4 +1,4 @@
-from customer import BillingPlan, Customer, UnknownCustomer
+from customer import BillingPlan
 
 
 def get_customer_name(site):
@@ -19,11 +19,3 @@ def reset_billing_plan(customer):
 def get_weeks_delinquent_in_last_year(customer):
     # Client 4
     return customer.payment_history.weeks_delinquent_in_last_year
-
-
-def is_unknown(customer):
-    if not (
-        isinstance(customer, Customer) or isinstance(customer, UnknownCustomer)
-    ):
-        raise ValueError(f"'{customer}' is not an actual customer.")
-    return customer.is_unknown
