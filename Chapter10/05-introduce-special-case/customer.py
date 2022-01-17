@@ -25,6 +25,12 @@ class Customer:
         return False
 
 
+class UnknownCustomer:
+    @property
+    def is_unknown(self):
+        return True
+
+
 class BillingPlan:
     def __init__(self, name):
         self._name = name
