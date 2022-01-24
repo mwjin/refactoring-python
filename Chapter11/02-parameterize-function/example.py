@@ -2,7 +2,7 @@ def base_charge(usage):
     if usage < 0:
         return usd(0)
     amount = (
-        bottom_band(usage) * 0.03
+        within_band(usage, 0, 100) * 0.03
         + within_band(usage, 100, 200) * 0.05
         + top_band(usage) * 0.07
     )
@@ -11,10 +11,6 @@ def base_charge(usage):
 
 def usd(amount):
     return f"${amount:,.2f}"
-
-
-def bottom_band(usage):
-    return min(usage, 100)
 
 
 def within_band(usage, bottom, top):
