@@ -18,7 +18,7 @@ def bottom_band(usage):
 
 
 def within_band(usage, bottom, top):
-    return min(usage, 200) - bottom if usage > bottom else 0
+    return min(usage, top) - bottom if usage > bottom else 0
 
 
 def top_band(usage):
