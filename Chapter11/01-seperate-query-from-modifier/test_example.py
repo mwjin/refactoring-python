@@ -1,10 +1,8 @@
-from example import alert_for_miscreant
+from example import find_miscreant
 
 
-def test_alert_for_miscreant():
-    assert alert_for_miscreant(["Minwoo Jeong", "Joker", "Saruman"]) == "Joker"
-    assert (
-        alert_for_miscreant(["Minwoo Jeong", "Saruman", "Joker"]) == "Saruman"
-    )
-    assert alert_for_miscreant(["Minwoo Jeong", "Batman", "Spiderman"]) == ""
+def test_find_miscreant():
+    assert find_miscreant(["Minwoo Jeong", "Joker", "Saruman"]) == "Joker"
+    assert find_miscreant(["Minwoo Jeong", "Saruman", "Joker"]) == "Saruman"
+    assert find_miscreant(["Minwoo Jeong", "Batman", "Spiderman"]) == ""
 

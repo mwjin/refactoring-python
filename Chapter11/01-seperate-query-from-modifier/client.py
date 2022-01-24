@@ -1,6 +1,7 @@
-from example import alert_for_miscreant
+from example import find_miscreant, set_off_alarms
 
 
 def client():
-    found = alert_for_miscreant(["Minwoo Jeong", "Joker"])
+    found = find_miscreant(["Minwoo Jeong", "Joker"])
+    set_off_alarms()
     print(f"The miscreant's name is {found}")
