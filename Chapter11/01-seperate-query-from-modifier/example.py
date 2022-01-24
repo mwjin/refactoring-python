@@ -12,10 +12,8 @@ def alert_for_miscreant(people):
 def find_miscreant(people):
     for p in people:
         if p == "Joker":
-            set_off_alarms()
             return "Joker"
         if p == "Saruman":
-            set_off_alarms()
             return "Saruman"
     return ""
 
