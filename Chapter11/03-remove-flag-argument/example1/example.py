@@ -1,10 +1,3 @@
-def delivery_date(order, is_rush):
-    if is_rush:
-        return rush_delivery_date(order)
-    else:
-        return regular_delivery_date(order)
-
-
 def rush_delivery_date(order):
     if order.delivery_state in ["MA", "CT"]:
         delivery_time = 1
