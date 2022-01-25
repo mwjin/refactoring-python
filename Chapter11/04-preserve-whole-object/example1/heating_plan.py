@@ -7,3 +7,6 @@ class HeatingPlan:
             bottom >= self._temperature_range.low
             and top <= self._temperature_range.high
         )
+
+    def new_within_range(self, range):
+        pass
