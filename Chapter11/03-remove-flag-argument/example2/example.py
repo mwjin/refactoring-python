@@ -1,6 +1,14 @@
 from datetime import timedelta
 
 
+def rush_delivery_date(order):
+    return delivery_date(order, True)
+
+
+def regular_delivery_date(order):
+    return delivery_date(order, False)
+
+
 def delivery_date(order, is_rush):
     if order.delivery_state == "MA" or order.delivery_state == "CT":
         delivery_time = 1 if is_rush else 2
