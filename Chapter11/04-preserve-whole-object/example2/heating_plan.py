@@ -9,7 +9,4 @@ class HeatingPlan:
         )
 
     def new_within_range(self, temp_range):
-        low = temp_range.low
-        high = temp_range.high
-        is_within_range = self.within_range(low, high)
-        return is_within_range
+        return self.within_range(temp_range.low, temp_range.high)
