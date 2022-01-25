@@ -9,4 +9,4 @@ class HeatingPlan:
         )
 
     def new_within_range(self, range):
-        pass
+        return self.within_range(range.low, range.high)
