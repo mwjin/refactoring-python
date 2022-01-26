@@ -21,9 +21,9 @@ class Order:
         return 2 if self.quantity > 100 else 1
 
     def discounted_price(self, base_price, discount_level):
-        if discount_level == 1:
+        if self.discount_level == 1:
             return base_price * 0.95
-        elif discount_level == 2:
+        elif self.discount_level == 2:
             return base_price * 0.9
         else:
             return base_price
