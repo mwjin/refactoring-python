@@ -3,7 +3,7 @@ class HeatingPlan:
         self._min = min
         self._max = max
 
-    def new_target_temperature(self, selected_temperature):
+    def target_temperature(self, selected_temperature):
         if selected_temperature > self._max:
             return self._max
         elif selected_temperature < self._min:
