@@ -14,11 +14,11 @@ class Order:
     @property
     def final_price(self):
         base_price = self.quantity * self.item_price
-        if self.quantity > 100:
-            discount_level = 2
-        else:
-            discount_level = 1
-        return self.discounted_price(base_price, discount_level)
+        return self.discounted_price(base_price, self.discount_level)
+
+    @property
+    def discount_level(self):
+        return 2 if self.quantity > 100 else 1
 
     def discounted_price(self, base_price, discount_level):
         if discount_level == 1:
