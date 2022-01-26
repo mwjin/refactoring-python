@@ -1,7 +1,7 @@
 class Person:
-    def __init__(self):
+    def __init__(self, id):
         self._name = ""
-        self._id = ""
+        self._id = id
 
     @property
     def name(self):
