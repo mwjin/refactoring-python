@@ -8,8 +8,7 @@ class HeatingPlan:
 
     @property
     def target_temperature(self):
-        selected_temperature = thermostat.selected_temperature
-        return self.new_target_temperature(selected_temperature)
+        return self.new_target_temperature(thermostat.selected_temperature)
 
     def new_target_temperature(self, selected_temperature):
         if selected_temperature > self._max:
