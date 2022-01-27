@@ -14,3 +14,7 @@ class Employee:
     @staticmethod
     def legal_type_codes():
         return {"E": "Engineer", "M": "Manager", "S": "Salesperson"}
+
+
+def create_employee(name, type_code):
+    return Employee(name, type_code)
