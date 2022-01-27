@@ -18,3 +18,15 @@ class Employee:
 
 def create_employee(name, type_code):
     return Employee(name, type_code)
+
+
+def create_engineer(name):
+    return Employee(name, "E")
+
+
+def create_manager(name):
+    return Employee(name, "M")
+
+
+def create_salesperson(name):
+    return Employee(name, "S")
