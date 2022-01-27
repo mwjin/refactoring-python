@@ -1,7 +1,7 @@
-from employee import Employee
+from employee import create_employee
 
 
 def test_employee_type():
-    assert Employee("Minwoo Jeong", "E").type == "Engineer"
-    assert Employee("Minwoo Jeong", "M").type == "Manager"
-    assert Employee("Minwoo Jeong", "S").type == "Salesperson"
+    assert create_employee("Minwoo Jeong", "E").type == "Engineer"
+    assert create_employee("Minwoo Jeong", "M").type == "Manager"
+    assert create_employee("Minwoo Jeong", "S").type == "Salesperson"
