@@ -1,17 +1,21 @@
 def score(candidate, medical_exam, scoring_guide):
-    result = 0
-    health_level = 0
-    high_medical_risk_flag = False
+    return Scorer().execute(candidate, medical_exam, scoring_guide)
 
-    if medical_exam.is_smoker:
-        health_level += 10
-        high_medical_risk_flag = True
+class Scorer:
+    def execute(self, candidate, medical_exam, scoring_guide):
+        result = 0
+        health_level = 0
+        high_medical_risk_flag = False
 
-    certification_grade = "regular"
-    if scoring_guide.state_with_low_certification(candidate.origin_state):
-        certification_grade = "low"
-        result -= 5
+        if medical_exam.is_smoker:
+            health_level += 10
+            high_medical_risk_flag = True
 
-    # ...
-    result -= max(health_level - 5, 0)
-    return result
+        certification_grade = "regular"
+        if scoring_guide.state_with_low_certification(candidate.origin_state):
+            certification_grade = "low"
+            result -= 5
+
+        # ...
+        result -= max(health_level - 5, 0)
+        return result
