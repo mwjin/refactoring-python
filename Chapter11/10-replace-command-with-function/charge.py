@@ -5,12 +5,8 @@ class ChargeCalculator:
         self._provider = provider
 
     @property
-    def base_charge(self):
-        return self._customer.base_rate * self._usage
-
-    @property
     def charge(self):
-        base_charge = self.base_charge
+        base_charge = self._customer.base_rate * self._usage
         return base_charge + self._provider.connection_charge
 
 
