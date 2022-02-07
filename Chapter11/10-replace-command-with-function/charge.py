@@ -1,11 +1,10 @@
 class ChargeCalculator:
     def __init__(self, customer, usage, provider):
-        self._customer = customer
         self._usage = usage
         self._provider = provider
 
     def charge(self, customer, usage, provider):
-        base_charge = self._customer.base_rate * self._usage
+        base_charge = customer.base_rate * self._usage
         return base_charge + self._provider.connection_charge
 
 
