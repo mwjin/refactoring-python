@@ -13,6 +13,5 @@ def get_month_charge(customer, usage, provider):
 
 
 def charge(customer, usage, provider):
-    return ChargeCalculator(customer, usage, provider).charge(
-        customer, usage, provider
-    )
+    base_charge = customer.base_rate * usage
+    return base_charge + provider.connection_charge
