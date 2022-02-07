@@ -13,9 +13,7 @@ class Scorer:
         self._health_level = 0
         self._high_medical_risk_flag = False
 
-        if self._medical_exam.is_smoker:
-            self._health_level += 10
-            self._high_medical_risk_flag = True
+        self.score_smoking()
 
         self._certification_grade = "regular"
         if self._scoring_guide.state_with_low_certification(
@@ -27,3 +25,8 @@ class Scorer:
         # ...
         self._result -= max(self._health_level - 5, 0)
         return self._result
+
+    def score_smoking(self):
+        if self._medical_exam.is_smoker:
+            self._health_level += 10
+            self._high_medical_risk_flag = True
