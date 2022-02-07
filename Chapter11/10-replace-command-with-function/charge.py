@@ -10,7 +10,8 @@ class ChargeCalculator:
 
     @property
     def charge(self):
-        return self.base_charge + self._provider.connection_charge
+        base_charge = self.base_charge
+        return base_charge + self._provider.connection_charge
 
 
 def get_month_charge(customer, usage, provider):
