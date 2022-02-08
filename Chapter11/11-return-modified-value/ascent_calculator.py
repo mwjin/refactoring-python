@@ -9,10 +9,10 @@ class AscentCalculator:
         return self._total_ascent
 
     def calculate_ascent(self):
-        total_ascent = 0
+        result = 0
         for i in range(1, len(self._points)):
             vertical_change = (
                 self._points[i].elevation - self._points[i - 1].elevation
             )
-            total_ascent += vertical_change if vertical_change > 0 else 0
-        return total_ascent
+            result += vertical_change if vertical_change > 0 else 0
+        return result
