@@ -1,11 +1,10 @@
 class AscentCalculator:
     def __init__(self, points) -> None:
         self._points = points
-        self._total_ascent = 0
+        self._total_ascent = self.calculate_ascent()
 
     @property
     def total_ascent(self):
-        self._total_ascent = self.calculate_ascent()
         return self._total_ascent
 
     def calculate_ascent(self):
