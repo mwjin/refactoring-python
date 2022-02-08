@@ -5,7 +5,7 @@ class AscentCalculator:
 
     @property
     def total_ascent(self):
-        self.calculate_ascent()
+        self._total_ascent = self.calculate_ascent()
         return self._total_ascent
 
     def calculate_ascent(self):
@@ -14,3 +14,4 @@ class AscentCalculator:
                 self._points[i].elevation - self._points[i - 1].elevation
             )
             self._total_ascent += vertical_change if vertical_change > 0 else 0
+        return self._total_ascent
