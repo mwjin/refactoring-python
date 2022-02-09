@@ -8,19 +8,14 @@ _error_list = []
 
 
 def get_order_shipping_cost(order_data):
-    status = -23
     try:
-        status = calculate_shipping_costs(order_data)
+        return calculate_shipping_costs(order_data)
     except Exception as e:
         if isinstance(e, OrderProcessingError):
-            _error_list.append({"order": order_data, "error_code": status})
+            _error_list.append({"order": order_data, "error_code": e.code})
+            return e.code
         else:
             raise e
-
-    if status < 0:
-        _error_list.append({"order": order_data, "error_code": status})
-
-    return status
 
 
 def get_error_list():
