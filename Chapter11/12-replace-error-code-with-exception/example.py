@@ -30,7 +30,7 @@ def get_error_list():
 def calculate_shipping_costs(order):
     shipping_rules = local_shipping_rules(order.country)
     if isinstance(shipping_rules, int) and shipping_rules < 0:
-        return shipping_rules  # Transfer the error
+        raise RuntimeError("All of the error codes have not been removed yet.")
     return 100
 
 
