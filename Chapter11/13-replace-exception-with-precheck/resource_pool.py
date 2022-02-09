@@ -4,12 +4,16 @@ class ResourcePool:
         self._allocated = []
 
     def get(self):
-        try:
-            result = self._available.pop()
-            self._allocated.append(result)
-        except IndexError:
+        if not self._available:
             result = Resource()
             self._allocated.append(result)
+        else:
+            try:
+                result = self._available.pop()
+                self._allocated.append(result)
+            except IndexError:
+                pass
+
         return result
 
     def add(self):
