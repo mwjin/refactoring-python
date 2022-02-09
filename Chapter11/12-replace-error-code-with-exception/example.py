@@ -39,4 +39,4 @@ def local_shipping_rules(country):
     if data:
         return ShippingRules(data)
     else:
-        return -23
+        raise OrderProcessingError(-23)
