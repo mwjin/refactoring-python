@@ -12,7 +12,7 @@ class ResourcePool:
                 result = self._available.pop()
                 self._allocated.append(result)
             except IndexError:
-                pass
+                raise AssertionError("Not reachable")
 
         return result
 
