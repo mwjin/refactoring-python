@@ -6,7 +6,12 @@ _error_list = []
 
 
 def get_order_shipping_cost(order_data):
-    status = calculate_shipping_costs(order_data)
+    status = -23
+    try:
+        status = calculate_shipping_costs(order_data)
+    except:
+        pass
+
     if status < 0:
         _error_list.append({"order": order_data, "error_code": status})
 
