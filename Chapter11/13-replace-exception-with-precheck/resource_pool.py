@@ -6,11 +6,10 @@ class ResourcePool:
     def get(self):
         if not self._available:
             result = Resource()
-            self._allocated.append(result)
         else:
             result = self._available.pop()
-            self._allocated.append(result)
 
+        self._allocated.append(result)
         return result
 
     def add(self):
