@@ -4,11 +4,7 @@ class ResourcePool:
         self._allocated = []
 
     def get(self):
-        if not self._available:
-            result = Resource()
-        else:
-            result = self._available.pop()
-
+        result = self._available.pop() if self._available else Resource()
         self._allocated.append(result)
         return result
 
