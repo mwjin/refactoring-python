@@ -3,8 +3,7 @@ from party import Party
 
 class Employee(Party):
     def __init__(self, name, id, monthly_cost) -> None:
-        super().__init__()
-        self._name = name
+        super().__init__(name)
         self._id = id
         self._monthly_cost = monthly_cost
 

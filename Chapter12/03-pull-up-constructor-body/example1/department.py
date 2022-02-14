@@ -3,8 +3,7 @@ from party import Party
 
 class Department(Party):
     def __init__(self, name, staff) -> None:
-        super().__init__()
-        self._name = name
+        super().__init__(name)
         self._staff = staff
 
     @property
