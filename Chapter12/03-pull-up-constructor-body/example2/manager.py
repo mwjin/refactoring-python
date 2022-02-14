@@ -5,7 +5,9 @@ class Manager(Employee):
     def __init__(self, name, grade) -> None:
         super().__init__(name)
         self._grade = grade
-        # All the subclasses execute the below part
+        self.finish_construction()
+
+    def finish_construction(self):
         if self.is_privileged:
             self.assign_car()
 
