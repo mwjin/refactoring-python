@@ -3,7 +3,7 @@ from employee import Employee
 
 
 def test_department_annual_cost():
-    assert Department().total_annual_cost == 12000
+    assert Department().annual_cost == 12000
 
 
 def test_employee_annual_cost():

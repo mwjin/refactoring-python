@@ -7,5 +7,5 @@ class Department(Party):
         return 1000
 
     @property
-    def total_annual_cost(self):
+    def annual_cost(self):
         return self.monthly_cost * 12
