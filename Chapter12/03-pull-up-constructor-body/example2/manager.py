@@ -7,10 +7,6 @@ class Manager(Employee):
         self._grade = grade
         self.finish_construction()
 
-    def finish_construction(self):
-        if self.is_privileged:
-            self.assign_car()
-
     @property
     def is_privileged(self):
         return self._grade > 4
