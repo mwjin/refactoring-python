@@ -1,5 +1,5 @@
 class Person:
-    def __init__(self, name, gender_code="X") -> None:
+    def __init__(self, name, gender_code) -> None:
         self._name = name
         self._gender_code = gender_code
 
@@ -21,4 +21,4 @@ def create_person(record):
         return Person(record["name"], "M")
     if record["gender"] == "F":
         return Person(record["name"], "F")
-    return Person(record["name"])
+    return Person(record["name"], "X")
