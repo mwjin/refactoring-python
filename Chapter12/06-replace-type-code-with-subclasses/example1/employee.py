@@ -2,14 +2,14 @@ class Employee:
     def __init__(self, name) -> None:
         self._name = name
 
-    def __str__(self) -> str:
-        return f"{self._name} ({self.type})"
-
 
 class Engineer(Employee):
     @property
     def type(self):
         return "engineer"
+
+    def __str__(self) -> str:
+        return f"{self._name} ({self.type})"
 
 
 class Manager(Employee):
@@ -17,11 +17,17 @@ class Manager(Employee):
     def type(self):
         return "manager"
 
+    def __str__(self) -> str:
+        return f"{self._name} ({self.type})"
+
 
 class Salesperson(Employee):
     @property
     def type(self):
         return "salesperson"
+
+    def __str__(self) -> str:
+        return f"{self._name} ({self.type})"
 
 
 def create_employee(name, type):
