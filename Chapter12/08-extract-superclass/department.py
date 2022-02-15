@@ -24,7 +24,3 @@ class Department(Party):
     @property
     def head_count(self):
         return len(self.staff)
-
-    @property
-    def annual_cost(self):
-        return self.monthly_cost * 12

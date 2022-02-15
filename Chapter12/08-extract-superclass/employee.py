@@ -14,7 +14,3 @@ class Employee(Party):
     @property
     def id(self):
         return self._id
-
-    @property
-    def annual_cost(self):
-        return self._monthly_cost * 12
