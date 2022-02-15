@@ -25,9 +25,7 @@ class Female(Person):
 
 def create_person(record):
     if record["gender"] == "M":
-        person = Male(record["name"])
-    elif record["gender"] == "F":
-        person = Female(record["name"])
-    else:
-        person = Person(record["name"])
-    return person
+        return Male(record["name"])
+    if record["gender"] == "F":
+        return Female(record["name"])
+    return Person(record["name"])
