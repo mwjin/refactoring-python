@@ -28,9 +28,17 @@ class Manager(Employee):
         return "manager"
 
 
+class Salesperson(Employee):
+    @property
+    def type(self):
+        return "salesperson"
+
+
 def create_employee(name, type):
     if type == "engineer":
         return Engineer(name, type)
     if type == "manager":
         return Manager(name, type)
+    if type == "salesperson":
+        return Salesperson(name, type)
     return Employee(name, type)
