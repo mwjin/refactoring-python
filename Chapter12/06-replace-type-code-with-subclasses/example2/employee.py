@@ -31,7 +31,13 @@ class Employee:
 
     @type.setter
     def type(self, value):
-        self._type = EmployeeType(value)
+        self._type = Employee.create_employee_type(value)
+
+    @staticmethod
+    def create_employee_type(value):
+        if value == "engineer":
+            return Engineer(value)
+        return EmployeeType(value)
 
     @property
     def capitalized_type(self):
