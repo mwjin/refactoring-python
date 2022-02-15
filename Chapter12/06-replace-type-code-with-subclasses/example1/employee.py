@@ -14,3 +14,9 @@ class Employee:
     @property
     def type(self):
         return self._type
+
+
+class Engineer(Employee):
+    @property
+    def type(self):
+        return "engineer"
