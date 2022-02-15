@@ -4,30 +4,18 @@ class Employee:
 
 
 class Engineer(Employee):
-    @property
-    def type(self):
-        return "engineer"
-
     def __str__(self) -> str:
-        return f"{self._name} ({self.type})"
+        return f"{self._name} (engineer)"
 
 
 class Manager(Employee):
-    @property
-    def type(self):
-        return "manager"
-
     def __str__(self) -> str:
-        return f"{self._name} ({self.type})"
+        return f"{self._name} (manager)"
 
 
 class Salesperson(Employee):
-    @property
-    def type(self):
-        return "salesperson"
-
     def __str__(self) -> str:
-        return f"{self._name} ({self.type})"
+        return f"{self._name} (salesperson)"
 
 
 def create_employee(name, type):
