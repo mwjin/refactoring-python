@@ -14,10 +14,6 @@ class Department(Party):
         return copy(self._staff)
 
     @property
-    def name(self):
-        return self._name
-
-    @property
     def total_monthly_cost(self):
         return reduce(
             lambda sum, cost: sum + cost,
