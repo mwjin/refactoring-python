@@ -18,10 +18,7 @@ def data():
 
 @pytest.fixture
 def people(data):
-    people = []
-    for record in data:
-        people.append(create_person(record))
-    return people
+    return [create_person(record) for record in data]
 
 
 def test_get_number_of_males(people):
