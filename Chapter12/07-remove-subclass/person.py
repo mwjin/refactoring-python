@@ -13,7 +13,7 @@ class Person:
 
     @property
     def is_male(self):
-        return isinstance(self, Male)
+        return self._gender_code == "M"
 
 
 class Male(Person):
@@ -30,7 +30,7 @@ class Female(Person):
 
 def create_person(record):
     if record["gender"] == "M":
-        return Male(record["name"])
+        return Person(record["name"], "M")
     if record["gender"] == "F":
         return Female(record["name"])
     return Person(record["name"])
