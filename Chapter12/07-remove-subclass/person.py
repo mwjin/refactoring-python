@@ -26,5 +26,5 @@ def create_person(record):
     if record["gender"] == "M":
         return Person(record["name"], "M")
     if record["gender"] == "F":
-        return Female(record["name"])
+        return Person(record["name"], "F")
     return Person(record["name"])
