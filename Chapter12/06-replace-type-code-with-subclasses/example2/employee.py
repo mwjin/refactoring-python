@@ -6,6 +6,11 @@ class EmployeeType:
         return self._value
 
 
+class Engineer(EmployeeType):
+    def __str__(self) -> str:
+        return "engineer"
+
+
 class Employee:
     def __init__(self, name, type) -> None:
         self._validate_type(type)
