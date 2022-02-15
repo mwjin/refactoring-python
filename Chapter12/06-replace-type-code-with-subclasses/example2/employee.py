@@ -1,9 +1,5 @@
 class EmployeeType:
-    def __init__(self, value) -> None:
-        self._value = value
-
-    def __str__(self) -> str:
-        return self._value
+    pass
 
 
 class Engineer(EmployeeType):
@@ -41,11 +37,11 @@ class Employee:
     @staticmethod
     def create_employee_type(value):
         if value == "engineer":
-            return Engineer(value)
+            return Engineer()
         if value == "manager":
-            return Manager(value)
+            return Manager()
         if value == "salesperson":
-            return Salesperson(value)
+            return Salesperson()
         raise ValueError(f'There is no "{value}" employee type.')
 
     @property
