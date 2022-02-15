@@ -9,4 +9,8 @@ class Employee:
             raise ValueError(f'There is no "{type}" employee type.')
 
     def __str__(self) -> str:
-        return f"{self._name} ({self._type})"
+        return f"{self._name} ({self.type})"
+
+    @property
+    def type(self):
+        return self._type
