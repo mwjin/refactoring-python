@@ -16,12 +16,6 @@ class Person:
         return self._gender_code == "M"
 
 
-class Male(Person):
-    @property
-    def gender_code(self):
-        return "M"
-
-
 class Female(Person):
     @property
     def gender_code(self):
