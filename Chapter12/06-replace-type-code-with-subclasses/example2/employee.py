@@ -1,5 +1,7 @@
 class EmployeeType:
-    pass
+    @property
+    def capitalized_name(self):
+        return str(self).capitalize()
 
 
 class Engineer(EmployeeType):
@@ -23,10 +25,6 @@ class Employee:
         self.type = type
 
     @property
-    def type_string(self):
-        return str(self._type)
-
-    @property
     def type(self):
         return self._type
 
@@ -44,9 +42,5 @@ class Employee:
             return Salesperson()
         raise ValueError(f'There is no "{value}" employee type.')
 
-    @property
-    def capitalized_type(self):
-        return self.type_string.capitalize()
-
     def __str__(self) -> str:
-        return f"{self._name} ({self.capitalized_type})"
+        return f"{self._name} ({self.type.capitalized_name})"
