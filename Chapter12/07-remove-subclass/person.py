@@ -1,6 +1,7 @@
 class Person:
-    def __init__(self, name) -> None:
+    def __init__(self, name, gender_code="X") -> None:
         self._name = name
+        self._gender_code = gender_code
 
     @property
     def name(self):
@@ -8,7 +9,7 @@ class Person:
 
     @property
     def gender_code(self):
-        return "X"
+        return self._gender_code
 
     @property
     def is_male(self):
