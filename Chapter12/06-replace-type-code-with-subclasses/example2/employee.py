@@ -16,6 +16,11 @@ class Manager(EmployeeType):
         return "manager"
 
 
+class Salesperson(EmployeeType):
+    def __str__(self) -> str:
+        return "salesperson"
+
+
 class Employee:
     def __init__(self, name, type) -> None:
         self._validate_type(type)
@@ -44,6 +49,8 @@ class Employee:
             return Engineer(value)
         if value == "manager":
             return Manager(value)
+        if value == "salesperson":
+            return Salesperson(value)
         return EmployeeType(value)
 
     @property
