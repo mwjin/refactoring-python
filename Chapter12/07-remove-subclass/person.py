@@ -10,6 +10,10 @@ class Person:
     def gender_code(self):
         return "X"
 
+    @property
+    def is_male(self):
+        return isinstance(self, Male)
+
 
 class Male(Person):
     @property
