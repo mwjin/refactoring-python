@@ -1,19 +1,23 @@
 import pytest
 
-from employee import Employee
+from employee import create_employee
 
 
 def test_employee_str():
     assert (
-        str(Employee("Minwoo Jeong", "engineer")) == "Minwoo Jeong (engineer)"
+        str(create_employee("Minwoo Jeong", "engineer"))
+        == "Minwoo Jeong (engineer)"
     )
-    assert str(Employee("Minwoo Jeong", "manager")) == "Minwoo Jeong (manager)"
     assert (
-        str(Employee("Minwoo Jeong", "salesperson"))
+        str(create_employee("Minwoo Jeong", "manager"))
+        == "Minwoo Jeong (manager)"
+    )
+    assert (
+        str(create_employee("Minwoo Jeong", "salesperson"))
         == "Minwoo Jeong (salesperson)"
     )
 
 
 def test_employee_with_error():
     with pytest.raises(ValueError):
-        Employee("Minwoo Jeong", "Other")
+        create_employee("Minwoo Jeong", "Other")

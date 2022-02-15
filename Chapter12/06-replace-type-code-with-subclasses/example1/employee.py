@@ -20,3 +20,9 @@ class Engineer(Employee):
     @property
     def type(self):
         return "engineer"
+
+
+def create_employee(name, type):
+    if type == "engineer":
+        return Engineer(name, type)
+    return Employee(name, type)
