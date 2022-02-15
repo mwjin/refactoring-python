@@ -23,13 +23,8 @@ class Salesperson(EmployeeType):
 
 class Employee:
     def __init__(self, name, type) -> None:
-        self._validate_type(type)
         self._name = name
         self.type = type
-
-    def _validate_type(self, type):
-        if type not in ["engineer", "manager", "salesperson"]:
-            raise ValueError(f'There is no "{type}" employee type.')
 
     @property
     def type_string(self):
@@ -51,7 +46,7 @@ class Employee:
             return Manager(value)
         if value == "salesperson":
             return Salesperson(value)
-        return EmployeeType(value)
+        raise ValueError(f'There is no "{value}" employee type.')
 
     @property
     def capitalized_type(self):
