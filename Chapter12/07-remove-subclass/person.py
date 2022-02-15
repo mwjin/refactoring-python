@@ -16,12 +16,6 @@ class Person:
         return self._gender_code == "M"
 
 
-class Female(Person):
-    @property
-    def gender_code(self):
-        return "F"
-
-
 def create_person(record):
     if record["gender"] == "M":
         return Person(record["name"], "M")
