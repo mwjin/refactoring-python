@@ -1,9 +1,12 @@
 from copy import copy
 from functools import reduce
 
+from party import Party
 
-class Department:
+
+class Department(Party):
     def __init__(self, name, staff) -> None:
+        super().__init__()
         self._name = name
         self._staff = staff
 
