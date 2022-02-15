@@ -1,7 +1,7 @@
 import pytest
 
 from client import get_number_of_males
-from person import Female, Male, Person
+from person import create_person
 
 
 @pytest.fixture
@@ -20,13 +20,7 @@ def data():
 def people(data):
     people = []
     for record in data:
-        if record["gender"] == "M":
-            person = Male(record["name"])
-        elif record["gender"] == "F":
-            person = Female(record["name"])
-        else:
-            person = Person(record["name"])
-        people.append(person)
+        people.append(create_person(record))
     return people
 
 

@@ -21,3 +21,13 @@ class Female(Person):
     @property
     def gender_code(self):
         return "F"
+
+
+def create_person(record):
+    if record["gender"] == "M":
+        person = Male(record["name"])
+    elif record["gender"] == "F":
+        person = Female(record["name"])
+    else:
+        person = Person(record["name"])
+    return person
