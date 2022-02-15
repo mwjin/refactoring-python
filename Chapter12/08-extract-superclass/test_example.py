@@ -19,9 +19,9 @@ def staff():
     ]
 
 
-def test_department_total_monthly_cost(staff):
-    assert Department("Dept", staff).total_monthly_cost == 1500
+def test_department_monthly_cost(staff):
+    assert Department("Dept", staff).monthly_cost == 1500
 
 
-def test_department_total_annual_cost(staff):
-    assert Department("Dept", staff).total_annual_cost == 18000
+def test_department_annual_cost(staff):
+    assert Department("Dept", staff).annual_cost == 18000
