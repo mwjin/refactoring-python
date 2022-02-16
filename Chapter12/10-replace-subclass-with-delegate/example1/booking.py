@@ -10,19 +10,21 @@ class Booking:
         return False
 
     @property
+    def is_premium(self):
+        return hasattr(self, "_premium_delegate")
+
+    @property
     def has_talkback(self):
-        return (
-            self._premium_delegate.has_talkback
-            if hasattr(self, "_premium_delegate")
-            else hasattr(self._show, "talkback") and not self.is_peak_day
-        )
+        if self.is_premium:
+            return self._premium_delegate.has_talkback
+        return hasattr(self._show, "talkback") and not self.is_peak_day
 
     @property
     def base_price(self):
         result = self._show.price
         if self.is_peak_day:
             result += round(result * 0.15)
-        if hasattr(self, "_premium_delegate"):
+        if self.is_premium:
             return self._premium_delegate.extend_base_price(result)
         return result
 
