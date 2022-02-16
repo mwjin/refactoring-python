@@ -25,11 +25,13 @@ class Bird:
 class EuropeanSwallow(Bird):
     @property
     def air_speed_velocity(self):
-        return 35
+        return self._species_delegate.air_speed_velocity
 
 
 class EuropeanSwallowDelegate:
-    pass
+    @property
+    def air_speed_velocity(self):
+        return 35
 
 
 class AfricanSwallow(Bird):
