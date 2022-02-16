@@ -10,7 +10,7 @@ class Bird:
         elif data.get("type") == "AfricanSwallow":
             return AfricanSwallowDelegate(data)
         elif data.get("type") == "NorwegianBlueParrot":
-            return NorwegianBlueParrotDelegate(data)
+            return NorwegianBlueParrotDelegate(data, self)
         return None
 
     @property
@@ -55,10 +55,7 @@ class NorwegianBlueParrot(Bird):
 
     @property
     def plumage(self):
-        if self._voltage > 100:
-            return "Scorched"
-        else:
-            return self._plumage if self._plumage else "Beautiful"
+        return self._species_delegate.plumage
 
     @property
     def air_speed_velocity(self):
@@ -66,9 +63,17 @@ class NorwegianBlueParrot(Bird):
 
 
 class NorwegianBlueParrotDelegate:
-    def __init__(self, data) -> None:
+    def __init__(self, data, bird) -> None:
+        self._bird = bird
         self._voltage = data.get("voltage")
         self._is_nailed = data.get("is_nailed")
+
+    @property
+    def plumage(self):
+        if self._voltage > 100:
+            return "Scorched"
+        else:
+            return self._bird._plumage if self._bird._plumage else "Beautiful"
 
     @property
     def air_speed_velocity(self):
