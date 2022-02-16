@@ -11,7 +11,11 @@ class Booking:
 
     @property
     def has_talkback(self):
-        return hasattr(self._show, "talkback") and not self.is_peak_day
+        return (
+            self._premium_delegate.has_talkback
+            if hasattr(self, "_premium_delegate")
+            else hasattr(self._show, "talkback") and not self.is_peak_day
+        )
 
     @property
     def base_price(self):
@@ -28,10 +32,6 @@ class PremiumBooking(Booking):
     def __init__(self, show, date, extras) -> None:
         super().__init__(show, date)
         self._extras = extras
-
-    @property
-    def has_talkback(self):
-        return self._premium_delegate.has_talkback
 
     @property
     def base_price(self):
