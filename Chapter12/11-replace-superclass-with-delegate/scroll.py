@@ -3,12 +3,13 @@ from catalog_item import CatalogItem
 
 class Scroll:
     def __init__(self, id, title, tags, date_last_cleaned) -> None:
-        self._catalog_item = CatalogItem(id, title, tags)
+        self._id = id
+        self._catalog_item = CatalogItem(None, title, tags)
         self._last_cleaned = date_last_cleaned
 
     @property
     def id(self):
-        return self._catalog_item.id
+        return self._id
 
     @property
     def title(self):
