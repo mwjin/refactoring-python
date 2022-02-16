@@ -22,6 +22,10 @@ class EuropeanSwallow(Bird):
         return 35
 
 
+class EuropeanSwallowDelegate:
+    pass
+
+
 class AfricanSwallow(Bird):
     def __init__(self, data) -> None:
         super().__init__(data)
