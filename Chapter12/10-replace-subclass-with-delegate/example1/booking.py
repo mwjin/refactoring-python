@@ -69,6 +69,6 @@ def create_booking(show, date):
 
 
 def create_premium_booking(show, date, extras):
-    result = PremiumBooking(show, date, extras)
+    result = Booking(show, date)
     result._be_premium(extras)
     return result
