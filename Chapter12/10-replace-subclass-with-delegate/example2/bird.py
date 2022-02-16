@@ -36,16 +36,6 @@ class EuropeanSwallowDelegate:
         return 35
 
 
-class AfricanSwallow(Bird):
-    def __init__(self, data) -> None:
-        super().__init__(data)
-        self._number_of_coconuts = data.get("number_of_coconuts")
-
-    @property
-    def air_speed_velocity(self):
-        return self._species_delegate.air_speed_velocity
-
-
 class AfricanSwallowDelegate:
     def __init__(self, data) -> None:
         self._number_of_coconuts = data.get("number_of_coconuts")
@@ -74,8 +64,6 @@ class NorwegianBlueParrot(Bird):
 
 
 def create_bird(data):
-    if data.get("type") == "AfricanSwallow":
-        return AfricanSwallow(data)
-    elif data.get("type") == "NorwegianBlueParrot":
+    if data.get("type") == "NorwegianBlueParrot":
         return NorwegianBlueParrot(data)
     return Bird(data)
