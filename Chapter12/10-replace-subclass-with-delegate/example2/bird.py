@@ -11,7 +11,7 @@ class Bird:
             return AfricanSwallowDelegate(data, self)
         elif data.get("type") == "NorwegianBlueParrot":
             return NorwegianBlueParrotDelegate(data, self)
-        return None
+        return SpeciesDelegate(data, self)
 
     @property
     def has_species_delegate(self):
@@ -23,15 +23,11 @@ class Bird:
 
     @property
     def plumage(self):
-        if self.has_species_delegate:
-            return self._species_delegate.plumage
-        return self._plumage if self._plumage else "Normal"
+        return self._species_delegate.plumage
 
     @property
     def air_speed_velocity(self):
-        if self.has_species_delegate:
-            return self._species_delegate.air_speed_velocity
-        return None
+        return self._species_delegate.air_speed_velocity
 
 
 class SpeciesDelegate:
@@ -41,6 +37,10 @@ class SpeciesDelegate:
     @property
     def plumage(self):
         return self._bird._plumage if self._bird._plumage else "Normal"
+
+    @property
+    def air_speed_velocity(self):
+        return None
 
 
 class EuropeanSwallowDelegate(SpeciesDelegate):
