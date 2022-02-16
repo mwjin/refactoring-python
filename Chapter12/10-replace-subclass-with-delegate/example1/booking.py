@@ -41,12 +41,6 @@ class Booking:
         self._premium_delegate = PremiumBookingDelegate(self, extras)
 
 
-class PremiumBooking(Booking):
-    def __init__(self, show, date, extras) -> None:
-        super().__init__(show, date)
-        self._extras = extras
-
-
 class PremiumBookingDelegate:
     def __init__(self, host_booking, extras) -> None:
         self._host = host_booking
