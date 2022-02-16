@@ -7,6 +7,8 @@ class Bird:
     def select_species_delegate(self, data):
         if data.get("type") == "EuropeanSwallow":
             return EuropeanSwallowDelegate()
+        elif data.get("type") == "AfricanSwallow":
+            return AfricanSwallowDelegate(data)
         return None
 
     @property
@@ -42,6 +44,11 @@ class AfricanSwallow(Bird):
     @property
     def air_speed_velocity(self):
         return 40 - 2 * self._number_of_coconuts
+
+
+class AfricanSwallowDelegate:
+    def __init__(self, data) -> None:
+        self._number_of_coconuts = data.get("number_of_coconuts")
 
 
 class NorwegianBlueParrot(Bird):
