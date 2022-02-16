@@ -28,12 +28,6 @@ class Bird:
         return None
 
 
-class EuropeanSwallow(Bird):
-    @property
-    def air_speed_velocity(self):
-        return self._species_delegate.air_speed_velocity
-
-
 class EuropeanSwallowDelegate:
     @property
     def air_speed_velocity(self):
@@ -69,9 +63,7 @@ class NorwegianBlueParrot(Bird):
 
 
 def create_bird(data):
-    if data.get("type") == "EuropeanSwallow":
-        return EuropeanSwallow(data)
-    elif data.get("type") == "AfricanSwallow":
+    if data.get("type") == "AfricanSwallow":
         return AfricanSwallow(data)
     elif data.get("type") == "NorwegianBlueParrot":
         return NorwegianBlueParrot(data)
