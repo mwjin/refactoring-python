@@ -43,12 +43,16 @@ class AfricanSwallow(Bird):
 
     @property
     def air_speed_velocity(self):
-        return 40 - 2 * self._number_of_coconuts
+        return self._species_delegate.air_speed_velocity
 
 
 class AfricanSwallowDelegate:
     def __init__(self, data) -> None:
         self._number_of_coconuts = data.get("number_of_coconuts")
+
+    @property
+    def air_speed_velocity(self):
+        return 40 - 2 * self._number_of_coconuts
 
 
 class NorwegianBlueParrot(Bird):
