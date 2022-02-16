@@ -1,7 +1,5 @@
 class Scroll:
-    def __init__(
-        self, id, title, tags, date_last_cleaned, catalog_id, catalog
-    ) -> None:
+    def __init__(self, id, date_last_cleaned, catalog_id, catalog) -> None:
         self._id = id
         self._catalog_item = catalog.get(catalog_id)
         self._last_cleaned = date_last_cleaned
