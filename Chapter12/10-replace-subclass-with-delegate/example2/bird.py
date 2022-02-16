@@ -62,13 +62,17 @@ class NorwegianBlueParrot(Bird):
 
     @property
     def air_speed_velocity(self):
-        return 0 if self._is_nailed else 10 + self._voltage / 10
+        return self._species_delegate.air_speed_velocity
 
 
 class NorwegianBlueParrotDelegate:
     def __init__(self, data) -> None:
         self._voltage = data.get("voltage")
         self._is_nailed = data.get("is_nailed")
+
+    @property
+    def air_speed_velocity(self):
+        return 0 if self._is_nailed else 10 + self._voltage / 10
 
 
 def create_bird(data):
