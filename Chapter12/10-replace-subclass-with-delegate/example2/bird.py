@@ -2,6 +2,12 @@ class Bird:
     def __init__(self, data) -> None:
         self._name = data.get("name")
         self._plumage = data.get("plumage")
+        self._species_delegate = self.select_species_delegate(data)
+
+    def select_species_delegate(self, data):
+        if data.get("type") == "EuropeanSwallow":
+            return EuropeanSwallowDelegate()
+        return None
 
     @property
     def name(self):
