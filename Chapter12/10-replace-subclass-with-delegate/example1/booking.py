@@ -39,6 +39,12 @@ class PremiumBooking(Booking):
         return hasattr(self._extras, "dinner")
 
 
+class PremiumBookingDelegate:
+    def __init__(self, host_booking, extras) -> None:
+        self._host = host_booking
+        self._extras = extras
+
+
 def create_booking(show, date):
     return Booking(show, date)
 
