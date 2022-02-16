@@ -2,7 +2,9 @@ from catalog_item import CatalogItem
 
 
 class Scroll:
-    def __init__(self, id, title, tags, date_last_cleaned) -> None:
+    def __init__(
+        self, id, title, tags, date_last_cleaned, catalog_id, catalog
+    ) -> None:
         self._id = id
         self._catalog_item = CatalogItem(None, title, tags)
         self._last_cleaned = date_last_cleaned
