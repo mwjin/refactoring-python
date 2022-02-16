@@ -23,6 +23,8 @@ class Bird:
 
     @property
     def plumage(self):
+        if self.has_species_delegate:
+            return self._species_delegate.plumage
         return self._plumage if self._plumage else "Normal"
 
     @property
@@ -57,21 +59,6 @@ class AfricanSwallowDelegate(SpeciesDelegate):
         return 40 - 2 * self._number_of_coconuts
 
 
-class NorwegianBlueParrot(Bird):
-    def __init__(self, data) -> None:
-        super().__init__(data)
-        self._voltage = data.get("voltage")
-        self._is_nailed = data.get("is_nailed")
-
-    @property
-    def plumage(self):
-        return self._species_delegate.plumage
-
-    @property
-    def air_speed_velocity(self):
-        return self._species_delegate.air_speed_velocity
-
-
 class NorwegianBlueParrotDelegate(SpeciesDelegate):
     def __init__(self, data, bird) -> None:
         super().__init__(data, bird)
@@ -91,6 +78,4 @@ class NorwegianBlueParrotDelegate(SpeciesDelegate):
 
 
 def create_bird(data):
-    if data.get("type") == "NorwegianBlueParrot":
-        return NorwegianBlueParrot(data)
     return Bird(data)
