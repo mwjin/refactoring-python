@@ -6,9 +6,9 @@ class Bird:
 
     def select_species_delegate(self, data):
         if data.get("type") == "EuropeanSwallow":
-            return EuropeanSwallowDelegate()
+            return EuropeanSwallowDelegate(data, self)
         elif data.get("type") == "AfricanSwallow":
-            return AfricanSwallowDelegate(data)
+            return AfricanSwallowDelegate(data, self)
         elif data.get("type") == "NorwegianBlueParrot":
             return NorwegianBlueParrotDelegate(data, self)
         return None
@@ -32,14 +32,24 @@ class Bird:
         return None
 
 
-class EuropeanSwallowDelegate:
+class SpeciesDelegate:
+    def __init__(self, data, bird) -> None:
+        self._bird = bird
+
+    @property
+    def plumage(self):
+        return self._bird._plumage if self._bird._plumage else "Normal"
+
+
+class EuropeanSwallowDelegate(SpeciesDelegate):
     @property
     def air_speed_velocity(self):
         return 35
 
 
-class AfricanSwallowDelegate:
-    def __init__(self, data) -> None:
+class AfricanSwallowDelegate(SpeciesDelegate):
+    def __init__(self, data, bird) -> None:
+        super().__init__(data, bird)
         self._number_of_coconuts = data.get("number_of_coconuts")
 
     @property
@@ -62,9 +72,9 @@ class NorwegianBlueParrot(Bird):
         return self._species_delegate.air_speed_velocity
 
 
-class NorwegianBlueParrotDelegate:
+class NorwegianBlueParrotDelegate(SpeciesDelegate):
     def __init__(self, data, bird) -> None:
-        self._bird = bird
+        super().__init__(data, bird)
         self._voltage = data.get("voltage")
         self._is_nailed = data.get("is_nailed")
 
