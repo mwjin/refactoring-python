@@ -31,7 +31,7 @@ class PremiumBooking(Booking):
 
     @property
     def has_talkback(self):
-        return hasattr(self._show, "talkback")
+        return self._premium_delegate.has_talkback
 
     @property
     def base_price(self):
@@ -46,6 +46,10 @@ class PremiumBookingDelegate:
     def __init__(self, host_booking, extras) -> None:
         self._host = host_booking
         self._extras = extras
+
+    @property
+    def has_talkback(self):
+        return hasattr(self._host._show, "talkback")
 
 
 def create_booking(show, date):
