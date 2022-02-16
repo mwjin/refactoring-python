@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pytest
 
-from booking import Booking, PremiumBooking
+from booking import create_booking, create_premium_booking
 from extras import Extras
 from show import Show
 
@@ -28,35 +28,35 @@ def extras():
 
 
 def test_booking_is_peak_day(show, weekday, weekend):
-    assert not Booking(show, weekday).is_peak_day
-    assert Booking(show, weekend).is_peak_day
+    assert not create_booking(show, weekday).is_peak_day
+    assert create_booking(show, weekend).is_peak_day
 
 
 def test_booking_has_talkback(show, weekday, weekend):
-    assert not Booking(show, weekday).has_talkback
+    assert not create_booking(show, weekday).has_talkback
     show.set_talkback()
-    assert Booking(show, weekday).has_talkback
-    assert not Booking(show, weekend).has_talkback
+    assert create_booking(show, weekday).has_talkback
+    assert not create_booking(show, weekend).has_talkback
 
 
 def test_booking_base_price(show, weekday, weekend):
-    assert Booking(show, weekday).base_price == 1000
-    assert Booking(show, weekend).base_price == 1150
+    assert create_booking(show, weekday).base_price == 1000
+    assert create_booking(show, weekend).base_price == 1150
 
 
 def test_premium_booking_has_talkback(show, weekday, weekend, extras):
-    assert not PremiumBooking(show, weekday, extras).has_talkback
+    assert not create_premium_booking(show, weekday, extras).has_talkback
     show.set_talkback()
-    assert PremiumBooking(show, weekday, extras).has_talkback
-    assert PremiumBooking(show, weekend, extras).has_talkback
+    assert create_premium_booking(show, weekday, extras).has_talkback
+    assert create_premium_booking(show, weekend, extras).has_talkback
 
 
 def test_premium_booking_base_price(show, weekday, weekend, extras):
-    assert PremiumBooking(show, weekday, extras).base_price == 1200
-    assert PremiumBooking(show, weekend, extras).base_price == 1350
+    assert create_premium_booking(show, weekday, extras).base_price == 1200
+    assert create_premium_booking(show, weekend, extras).base_price == 1350
 
 
 def test_premium_booking_has_dinner(show, weekday, extras):
-    assert not PremiumBooking(show, weekday, extras).has_dinner
+    assert not create_premium_booking(show, weekday, extras).has_dinner
     extras.set_dinner()
-    assert PremiumBooking(show, weekday, extras).has_dinner
+    assert create_premium_booking(show, weekday, extras).has_dinner

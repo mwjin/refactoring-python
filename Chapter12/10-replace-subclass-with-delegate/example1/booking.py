@@ -37,3 +37,11 @@ class PremiumBooking(Booking):
     @property
     def has_dinner(self):
         return hasattr(self._extras, "dinner")
+
+
+def create_booking(show, date):
+    return Booking(show, date)
+
+
+def create_premium_booking(show, date, extras):
+    return PremiumBooking(show, date, extras)
