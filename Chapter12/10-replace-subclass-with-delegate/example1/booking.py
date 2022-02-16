@@ -20,6 +20,9 @@ class Booking:
             result += round(result * 0.15)
         return result
 
+    def _be_premium(self, extras):
+        self._premium_delegate = PremiumBookingDelegate(self, extras)
+
 
 class PremiumBooking(Booking):
     def __init__(self, show, date, extras) -> None:
@@ -50,4 +53,6 @@ def create_booking(show, date):
 
 
 def create_premium_booking(show, date, extras):
-    return PremiumBooking(show, date, extras)
+    result = PremiumBooking(show, date, extras)
+    result._be_premium(extras)
+    return result
