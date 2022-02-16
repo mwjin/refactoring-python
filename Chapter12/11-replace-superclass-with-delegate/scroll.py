@@ -1,9 +1,8 @@
 from catalog_item import CatalogItem
 
 
-class Scroll(CatalogItem):
+class Scroll:
     def __init__(self, id, title, tags, date_last_cleaned) -> None:
-        super().__init__(id, title, tags)
         self._catalog_item = CatalogItem(id, title, tags)
         self._last_cleaned = date_last_cleaned
 
