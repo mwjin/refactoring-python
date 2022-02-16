@@ -10,6 +10,10 @@ class Bird:
         return None
 
     @property
+    def has_species_delegate(self):
+        return self._species_delegate is not None
+
+    @property
     def name(self):
         return self._name
 
@@ -19,6 +23,8 @@ class Bird:
 
     @property
     def air_speed_velocity(self):
+        if self.has_species_delegate:
+            return self._species_delegate.air_speed_velocity
         return None
 
 
