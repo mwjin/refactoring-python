@@ -28,6 +28,15 @@ class Booking:
             return self._premium_delegate.extend_base_price(result)
         return result
 
+    @property
+    def has_dinner(self):
+        if self.is_premium:
+            return self._premium_delegate.has_dinner
+        raise RuntimeError(
+            "The Booking class without being premium "
+            "does not have 'has_dinner' property."
+        )
+
     def _be_premium(self, extras):
         self._premium_delegate = PremiumBookingDelegate(self, extras)
 
@@ -36,10 +45,6 @@ class PremiumBooking(Booking):
     def __init__(self, show, date, extras) -> None:
         super().__init__(show, date)
         self._extras = extras
-
-    @property
-    def has_dinner(self):
-        return hasattr(self._extras, "dinner")
 
 
 class PremiumBookingDelegate:
@@ -53,6 +58,10 @@ class PremiumBookingDelegate:
 
     def extend_base_price(self, base_price):
         return round(base_price + self._extras.premium_fee)
+
+    @property
+    def has_dinner(self):
+        return hasattr(self._extras, "dinner")
 
 
 def create_booking(show, date):
